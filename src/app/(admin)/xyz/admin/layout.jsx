@@ -1,11 +1,8 @@
-import Nav from "@/components/shared/Nav";
 
-
-
+// admin layout
 const layout = ({ children }) => {
     return (
-        <div>
-            <Nav />
+        <div>  
             {children}
         </div>
     );
