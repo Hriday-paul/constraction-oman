@@ -10,14 +10,14 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Hero />
-            {/* <ProjectCouter /> */}
+            <ProjectCouter />
             {/* <HomeServicesSection /> */}
-            <HomeAbout />
-            <HomeProjects />
-            <HomeClientsSection />
-        </div>
+            {/* <HomeAbout /> */}
+            {/* <HomeProjects /> */}
+            {/* <HomeClientsSection /> */}
+        </>
     );
 };
 

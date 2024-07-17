@@ -24,7 +24,7 @@ export default function HomeAbout() {
             </button>
           </div>
         </div>
-        <div className="imageBox   lg:flex h-full flex justify-center lg:justify-end relative w-[100%] ">
+        <div className="imageBox  hidden lg:flex h-full justify-center lg:justify-end relative w-[100%] ">
           <Image height={800} width={800} src={girlIamge} alt="" className="h-80 md:h-[400px] lg:h-[460px] w-auto -mb-5" />
         </div>
       </div>

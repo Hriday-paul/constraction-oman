@@ -6,14 +6,14 @@ import Nav from "../shared/Nav";
 
 export default function Hero() {
   return (
-    <div className="relative flex flex-col">
+    <div className="relative -z-20 flex flex-col">
       <Slider />
       {/* <Nav /> */}
-      <div className="relative py-24 z-10 flex h-full justify-center lg:justify-between lg:flex-row container pointer-events-none flex-col pr-11 items-center ">
+      <div className="relative py-24 z-10 flex h-full justify-center lg:justify-between lg:flex-row container flex-col pr-11 items-center ">
         {/* //text */}
-        {/* <HeroContent /> */}
+        <HeroContent />
         {/* // img */}
-        {/* <ImageCard imageSrc={ChairmanImage} /> */}
+        <ImageCard imageSrc={ChairmanImage} />
       </div>
     </div>
   );
@@ -21,17 +21,17 @@ export default function Hero() {
 
 function HeroContent() {
   return (
-    <div className="text-white capitalize flex flex-col gap-6 items-start">
-      <h1 className="text-6xl font-semibold">
+    <div className="text-white capitalize flex flex-col gap-3 lg:gap-6 items-start pointer-events-none">
+      <h1 className="text-2xl pointer-events-auto md:text-4xl lg:text-6xl font-semibold cursor-text">
         Affordable roofing repair <br />
         <span className="text-secondary">services</span>
       </h1>
 
-      <p className="text-xl">
+      <p className="text-sm w-4/5 pointer-events-auto md:text-lg lg:text-xl cursor-text">
         OUR CONSISTENT PERFORMANCE AND IMPECCABLE SERVICE DELIVERY HAVE MADE US
       </p>
 
-      <button className="bg-primary pointer-events-auto border-2 transition-all duration-200 border-primary hover:text-white hover:border-primary hover:bg-transparent rounded-lg text-lg px-3 py-2">
+      <button className="bg-primary pointer-events-auto border-2 transition-all duration-200 border-primary hover:text-white hover:border-primary hover:bg-transparent text-sm md:text-lg px-3 py-2 cursor-text">
         More About Us
       </button>
     </div>
@@ -40,7 +40,7 @@ function HeroContent() {
 
 function ImageCard({ imageSrc }) {
   return (
-    <div className=" pointer-events-auto relative translate-y-20 lg:translate-y-56 self-end  w-full max-w-[250px] text-white gap-4  bg-primary rounded-lg flex flex-col items-center pb-8">
+    <div className="hidden lg:flex pointer-events-auto relative translate-y-20 lg:translate-y-56 self-end  w-full max-w-[250px] text-white gap-4  bg-primary rounded-lg flex-col items-center pb-8">
       <div className="absolute top-0 translate-y-[-50%] h-40 w-40 rounded-full overflow-hidden border-4 border-primary ">
         <Image height={500} width={500} className="w-full h-auto" src={imageSrc} alt="chairman image" />
       </div>

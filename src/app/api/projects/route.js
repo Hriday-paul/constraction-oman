@@ -18,11 +18,15 @@ export const GET = async (request) => {
         if (searchParams) {
             const query = searchParams.get('type');
             const category = searchParams.get('category');
+            const limit = searchParams.get('limit');
             if (query == 'best') {
                 projectsCommand += 'and is_best_projects = true'
             }
             if (category) {
                 projectsCommand += ` and categories.id = ${category}`
+            }
+            if (limit) {
+                projectsCommand += ` limit ${parseInt(limit)}`
             }
         }
 

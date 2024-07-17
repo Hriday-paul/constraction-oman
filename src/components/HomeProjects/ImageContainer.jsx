@@ -8,7 +8,11 @@ import project6 from "@/images/project-home/project-6.webp"
 import big1 from "@/images/project-home/mid-project-1.webp"
 import big2 from "@/images/project-home/mid-project-2.webp"
 import SmallImage from './SmallImage'
-export default function ImageContainer() {
+import UseGetHomeProjects from "@/Hooks/UseGetHomeProjects/UseGetHomeProjects"
+export default async function ImageContainer () {
+    const bestProjects = await UseGetHomeProjects();
+    console.log(bestProjects);
+    
     return (
         <div className=' lg:py-20 md:py-12 gap-4 grid lg:grid-cols-3 md:grid-cols-2  justify-center place-items-center '>
             <div className=' flex flex-col justify-center place-items-center h-full gap-3'>
