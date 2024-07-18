@@ -1,6 +1,6 @@
 
 import { Suspense } from "react";
-import Title from "../shared/Title/Title";
+import Title from "../Shared/Title/Title";
 import ImageContainer from "./ImageContainer";
 import UseGetHomeProjects from "@/Hooks/Home/UseGetHomeProjects";
 

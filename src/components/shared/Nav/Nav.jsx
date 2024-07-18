@@ -91,7 +91,7 @@ const Nav = () => {
         <div className=" py-2 max-w-7xl mx-auto">
 
           <div className="flex flex-row justify-between items-center p-3 relative">
-            <div className="w-[60px]">
+            <Link href='/' className="w-[60px]">
               <Image
                 height={500}
                 width={500}
@@ -100,7 +100,7 @@ const Nav = () => {
                 className="w-full h-auto"
                 alt="nanco oman logo"
               />
-            </div>
+            </Link>
             <div className="hidden lg:block">
               <ULList data={menu} />
             </div>

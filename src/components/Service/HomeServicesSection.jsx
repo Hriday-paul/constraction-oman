@@ -1,24 +1,25 @@
 import { LiaCitySolid } from "react-icons/lia";
 import Title from "../Shared/Title/Title";
+import Link from "next/link";
 
 export default function HomeServicesSection() {
   return (
     <>
       <div className="container mt-16">
-        <Title>Our Project Types</Title>
+        <Title>What we build</Title>
         <div className="my-5 w-fit mx-auto md:grid md:grid-cols-2 md:my-0 md:gap-9 lg:flex">
-          <Card>Construction and Engineering</Card>
-          <Card>Intigrated Facilities-Oman</Card>
-          <Card>MEPI</Card>
+          <Card link='/projects/engineering-constraction'>Construction and Engineering</Card>
+          <Card link='/projects/integrated-facilities-management-oman'>Intigrated Facilities-Oman</Card>
+          <Card link='/projects/mepi'>MEPI</Card>
         </div>
       </div>
     </>
   );
 }
 
-function Card({ children, Icon }) {
+function Card({ children, Icon, link }) {
   return (
-    <div className="relative self-start my-9 md:my-0 mx-auto md:mr-auto md:mx-0 w-80 md:w-72 aspect-square flex flex-col gap-3 border justify-center items-start py-20 px-8 rounded-lg shadow-xl border-gray-200 overflow-hidden group">
+    <Link href={link} className="relative self-start my-9 md:my-0 mx-auto md:mr-auto md:mx-0 w-80 md:w-72 aspect-square flex flex-col gap-3 border justify-center items-start py-20 px-8 rounded-lg shadow-xl border-gray-200 overflow-hidden group">
       <span className="text-7xl text-secondary group-hover:text-white self-start duration-500">
         {Icon ? Icon : <LiaCitySolid />}
       </span>
@@ -26,6 +27,6 @@ function Card({ children, Icon }) {
         {children ? children : "Please write some content"}
       </h2>
       <div className="group-hover:scale-100 scale-0 transition-all duration-500 w-[400%] translate-x-1/2 translate-y-1/2 aspect-square absolute bottom-0 right-0 bg-secondary -z-10 rounded-full"></div>
-    </div>
+    </Link>
   );
 }

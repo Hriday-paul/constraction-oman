@@ -18,14 +18,11 @@ export default function BreadCrumb({ path, title, pageName }) {
         <h1 className="md:text-5xl lg:text-6xl text-4xl font-semibold text-white">
           {pageName ? pageName : "Please Give Page Name"}
         </h1>
+
         <div className="bg-primary hidden w-80 h-[90px] text-lg lg:flex flex-col gap-6 mt-7">
           <BreadCrumbLine />
 
-          <p className="md:text-lg lg:text-xl pl-10 -mt-2 text-white text-nowrap whitespace-nowrap ">
-            {title
-              ? title
-              : "This section name is " + pageName + ". Plase scroll"}
-          </p>
+          
         </div>
       </div>
       <div className="text-[#00ddff] relative">

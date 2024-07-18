@@ -4,11 +4,12 @@ import Image from "next/image";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { ImQuotesLeft } from "react-icons/im";
 
-const breadCrumbData = [{ name: 'about', link: '/about' }, { name: ' / chairmen message', rout: "chairmen-msg" }]
+const breadCrumbData = [{ name: 'about', link: '/about' }, { name: " / md-message", rout: "/md's message" }];
 
-const page = async () => {
-    const chaiman = await UseGetChairmanMsg('chairman');
-    const chaimanInfo = chaiman[0];
+export default async function page() {
+    const manager = await UseGetChairmanMsg('Managing Director');
+    const managerInfo = manager[0];
+    
     return (
         <div>
             <TopSection title={"Chairmen's"} routs={breadCrumbData} />
@@ -16,12 +17,13 @@ const page = async () => {
             <div className="w-full mx-auto">
                 <div className="container flex justify-center flex-col">
                     <MessageContainer
-                        photo={chaimanInfo?.image}
-                        who={"Chairman"}
+                        photo={managerInfo?.image}
+                        who={"MD's"}
                         quotes={
-                            chaimanInfo?.message
+                            managerInfo?.message
                         }
-                        email={chaimanInfo.email}
+                        email={managerInfo.email}
+                        isMd={true}
                     />
                 </div>
             </div>
@@ -29,7 +31,6 @@ const page = async () => {
     );
 };
 
-export default page;
 
 const MessageContainer = ({ isMd = false, photo, who, quotes, email }) => {
     console.log(photo)

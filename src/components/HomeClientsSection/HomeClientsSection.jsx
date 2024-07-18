@@ -4,7 +4,7 @@ import Client3 from "@/images/clients/client-3.jpg";
 import Client4 from "@/images/clients/client-4.png";
 import Client5 from "@/images/clients/client-5.jpeg";
 import style from "./logos.module.css";
-import Title from "../shared/Title/Title";
+import Title from "../Shared/Title/Title";
 
 const images = [Client2, Client3, Client4, Client5, Client2, Client4];
 
