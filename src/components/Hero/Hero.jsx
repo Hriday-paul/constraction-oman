@@ -2,13 +2,12 @@
 import ChairmanImage from "@/images/tom_eating.jpg";
 import Slider from "./Slider";
 import Image from "next/image";
-import Nav from "../shared/Nav";
 
 export default function Hero() {
   return (
     <div className="relative -z-20 flex flex-col">
       <Slider />
-      {/* <Nav /> */}
+     
       <div className="relative py-24 z-10 flex h-full justify-center lg:justify-between lg:flex-row container flex-col pr-11 items-center ">
         {/* //text */}
         <HeroContent />

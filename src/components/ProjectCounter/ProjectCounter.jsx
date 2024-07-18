@@ -1,25 +1,26 @@
-export default function ProjectCouter() {
+import Counter from "./Counter";
+
+
+export default async function ProjectCouter({ countInfo }) {
+  const countData = await countInfo;
+  
   return (
     <div className="container flex  gap-3 lg:gap-7 justify-center lg:mt-5 lg:justify-start">
-      <Display>20+ Projects</Display>
+
+      <Counter name={'projects'} count={countData?.totalProjects}/>
+    
       <Line />
-      <Display>50+ Members</Display>
+
+      <Counter name={'Membars'} count={countData?.totalMembars}/>
+      
       <Line />
-      <Display>120+ Clients</Display>
+
+      <Counter name={'Clients'} count={countData?.totalClients}/>
+      
     </div>
   );
 }
 
-function Display({ children = "give text" }) {
-  const [count, name] = children.split(" ");
-
-  return (
-    <div className="text-center uppercase">
-      <span className="text-secondary text-xl lg:text-4xl">{count}</span>
-      <p className="text-muted text-lg lg:text-3xl">{name}</p>
-    </div>
-  );
-}
 
 function Line() {
   return (

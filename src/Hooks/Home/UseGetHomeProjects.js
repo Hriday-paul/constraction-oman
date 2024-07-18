@@ -2,7 +2,7 @@
 
 const UseGetHomeProjects = async () => {
     try {
-        const response = await fetch('/http://localhost:3000/api/projects?type=best&limit=5',
+        const response = await fetch(process.env.SERVER_URL +'/projects?type=best&limit=8',
             {
                 next:
                     { revalidate: 5 }
@@ -11,7 +11,7 @@ const UseGetHomeProjects = async () => {
         return res
     } catch (err) {
         console.log(err);
-        //throw new Error('fetching error')
+        throw new Error('fetching error')
     }
 };
 

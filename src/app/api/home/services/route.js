@@ -3,7 +3,7 @@ import db from '@/DB/database'
 export const GET = async () => {
     try {
         // get all services
-        const servicesCommand = 'select * from services'
+        const servicesCommand = 'select * from project_types'
         const servicesPromise = await new Promise((resolve, reject) => {
             db.query(servicesCommand, (err, result) => {
                 if (err) {

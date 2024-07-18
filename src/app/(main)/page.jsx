@@ -4,19 +4,34 @@ import HomeClientsSection from '@/components/HomeClientsSection/HomeClientsSecti
 import HomeProjects from '@/components/HomeProjects/HomeProjects';
 import ProjectCouter from '@/components/ProjectCounter/ProjectCounter';
 import HomeServicesSection from '@/components/services/HomeServicesSection';
-import Link from 'next/link';
-import React from 'react';
-import { RiArrowDropDownLine } from "react-icons/ri";
+import Loading from '@/components/shared/Loading/Loading';
+import TopSection from '@/components/shared/TopSection/TopSection';
+import UseGetAllCategories from '@/Hooks/Home/UseGetAllCategories';
+import UseHomeSection1 from '@/Hooks/Home/UseHomeSection1';
+import React, { Suspense } from 'react';
 
-const Home = () => {
+const Home = async () => {
+    const countInfo = UseHomeSection1();
+    const categoriesPromise = UseGetAllCategories();
     return (
         <>
             <Hero />
-            <ProjectCouter />
-            {/* <HomeServicesSection /> */}
-            {/* <HomeAbout /> */}
-            {/* <HomeProjects /> */}
-            {/* <HomeClientsSection /> */}
+
+            <Suspense fallback={<Loading />}>
+                <ProjectCouter countInfo={countInfo} />
+            </Suspense>
+
+            <Suspense fallback={<Loading />}>
+                <HomeServicesSection categoriesPromise={categoriesPromise} />
+            </Suspense>
+
+            <HomeAbout />
+
+            <HomeProjects />
+
+            <HomeClientsSection />
+
+            <TopSection />
         </>
     );
 };

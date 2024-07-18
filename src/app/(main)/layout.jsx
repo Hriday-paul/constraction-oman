@@ -1,4 +1,5 @@
-import Nav from "@/components/shared/Nav";
+import Nav from "@/components/Shared/Nav/Nav";
+
 
 
 
