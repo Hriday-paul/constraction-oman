@@ -7,8 +7,7 @@ import Image from "next/image";
 export default function HomeAbout() {
   return (
     <div
-      className="my-14 w-full mx-auto relative bg-primary bg-cover"
-      style={{ backgroundImage: `url(${bg})` }}
+      className="my-14 w-full mx-auto relative bg-primary bg-cover bg-[url('https://raw.githubusercontent.com/Hriday-paul/constraction-oman/main/src/images/About/bg.png?token=GHSAT0AAAAAACU7ZO2D42CIHNR4S7YIGJAAZVA5GQA')]"
     >
       <div className="container  flex flex-col lg:flex-row lg:justify-between md:justify-between justify-center lg:place-items-end md:place-items-end">
         <div className="textBox lg:py-20 md:py-20 py-10 w-full">
@@ -25,7 +24,7 @@ export default function HomeAbout() {
           </div>
         </div>
         <div className="imageBox  hidden lg:flex h-full justify-center lg:justify-end relative w-[100%] ">
-          <Image height={800} width={800} src={girlIamge} alt="" className="h-80 md:h-[400px] lg:h-[460px] w-auto -mb-5" />
+          <Image height={800} width={800} src={girlIamge} alt="nanco about man" className="h-80 md:h-[400px] lg:h-[460px] w-auto -mb-5" />
         </div>
       </div>
     </div>

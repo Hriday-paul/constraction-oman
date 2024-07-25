@@ -1,44 +1,57 @@
 import Image from "next/image";
-import Client2 from "@/images/clients/client-2.png";
-import Client3 from "@/images/clients/client-3.jpg";
-import Client4 from "@/images/clients/client-4.png";
-import Client5 from "@/images/clients/client-5.jpeg";
 import style from "./logos.module.css";
 import Title from "../Shared/Title/Title";
 
-const images = [Client2, Client3, Client4, Client5, Client2, Client4];
-
-const { logodiv, logocontainer } = style;
-export default function HomeClientsSection() {
+const { slideanimation, parent: parentStyle } = style;
+export default async function HomeClientsSection({clients}) {
+  const clientList = await clients;
   return (
     <div>
       <Title>Our Clients</Title>
-      <div
-        className={
-          "my-5 whitespace-nowrap overflow-hidden container" +
-          "" +
-          logocontainer
-        }
-      >
-        <ImgSlide allImage={images} />
-        <ImgSlide allImage={images} />
+
+      <div className="max-w-7xl mx-auto px-4 overflow-hidden">
+        <div className="group overflow-hidden">
+          {/** Slide Contaier*/}
+          <div
+            className={
+              "relative h-44 w-[1700px] overflow-hidden " + parentStyle
+            }
+          >
+            <div
+              className={`absolute h-full w-full top-0 left-[100%] ${slideanimation}`}
+            >
+              <Slide clientList={clientList}/>
+            </div>
+            <div className={`h-full w-full ${slideanimation}`}>
+              <Slide clientList={clientList}/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function ImgSlide({ allImage }) {
+function Slide({ clientList }) {
   return (
-    <div className={"inline-block w-full" + " " + logodiv}>
-      <div className="h-20 flex gap-7 justify-around">
-        {allImage.map((imgSrc) => {
-          return (
-            <div key={crypto.randomUUID()}>
-              <Image height={300} width={300} src={imgSrc} alt="logo" className="h-10 md:h-12 lg:h-16 w-auto" />
-            </div>
-          );
-        })}
-      </div>
+    <div className={`h-full grid gap-4 pr-4 grid-cols-7`}>
+      {clientList.map((client) => {
+        return <SlideImage src={client?.image} key={crypto.randomUUID()} />;
+      })}
+    </div>
+  );
+}
+
+function SlideImage({ src }) {
+  return (
+    <div className="flex justify-center items-center">
+      <Image
+        height={500}
+        width={500}
+        className="h-28 object-contain"
+        src={src}
+        alt="client logo"
+      />
     </div>
   );
 }

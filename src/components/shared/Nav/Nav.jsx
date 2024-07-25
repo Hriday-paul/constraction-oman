@@ -22,6 +22,7 @@ const menu = [
     item: "BUSINESS LINES",
     subItem: {
       "ENGINEERING & CONSTRUCITON": "/buisiness-lines/engineering-constraction",
+      "Integrated Facilities Management Oman": "/buisiness-lines/integrated-facilities-management-oman",
       MEPI: "/buisiness-lines/mepi",
     },
   },
@@ -66,7 +67,7 @@ const Nav = () => {
 
   useEffect(() => {
     const listener = window.addEventListener("scroll", (e) => {
-      if (window.scrollY > 410) {
+      if (window.scrollY > 120) {
         setLogo("black");
         setIsDown(true);
       } else {

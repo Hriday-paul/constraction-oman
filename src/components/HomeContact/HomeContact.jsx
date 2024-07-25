@@ -5,7 +5,7 @@ import Form from "./Form";
 export default function HomeContact() {
   const bg = 'https://res.cloudinary.com/devlj6p7h/image/upload/v1721284040/test/qdfgukkt3pz5e4b5gjgq.jpg'
   return (
-    <div className=" mx-auto relative container mt-28">
+    <div className=" mx-auto relative mt-28">
       <div
         className="bg-center bg-cover z-0 pb-32 pt-12 relative "
         style={{ backgroundImage: `url(${bg})` }}

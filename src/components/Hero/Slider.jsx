@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/navigation";
 
 import { Navigation } from "swiper/modules";
+import Image from "next/image";
 export default function Slider({ images }) {
   return (
     <Swiper
@@ -25,8 +26,10 @@ export default function Slider({ images }) {
             }}
             key={index}
           >
-            <img
+            <Image
               src={imageSrc}
+              height={800}
+              width={2000}
               className="brightness-50 h-full w-full min-h-[600px] object-cover select-none"
             />
           </SwiperSlide>

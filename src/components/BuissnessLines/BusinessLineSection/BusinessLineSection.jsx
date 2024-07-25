@@ -6,7 +6,7 @@ import UpperSection from "./UpperSection";
 
 export default function BusinessLineSection() {
   return (
-    <div className="container flex flex-col md:flex-row  lg:flex-row gap-5">
+    <div className="max-w-7xl mx-auto flex flex-col md:flex-row lg:flex-row gap-5 my-8 ">
 
       <UpperSection
         rout={'/buisiness-lines/engineering-constraction/prestigius-projects'}

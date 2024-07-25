@@ -1,12 +1,9 @@
-.logocontainer:hover {
-  border-color: red;
-}
-.logocontainer:hover .logodiv {
+.parent:hover .slideanimation {
   animation-play-state: paused;
 }
 
-.logodiv {
-  animation: 15s logoslide infinite linear;
+.slideanimation {
+  animation: logoslide 20s linear infinite;
 }
 
 @keyframes logoslide {

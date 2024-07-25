@@ -4,7 +4,18 @@ import Image from "next/image";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { ImQuotesLeft } from "react-icons/im";
 
-const breadCrumbData = [{ name: 'about', link: '/about' }, { name: " / md-message", rout: "/md's message" }];
+const breadCrumbData = [{ name: 'home', link: '/' },{ name: ' / about', link: '/about' }, { name: " / md-message", rout: "/md's message" }];
+
+
+export async function generateMetadata() {
+    const manager = await UseGetChairmanMsg('Managing Director');
+    const managerInfo = manager[0];
+    return {
+        title: 'Nanco | about | manager messages',
+        description: managerInfo?.message,
+    }
+}
+
 
 export default async function page() {
     const manager = await UseGetChairmanMsg('Managing Director');

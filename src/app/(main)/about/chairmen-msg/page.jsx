@@ -4,7 +4,18 @@ import Image from "next/image";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { ImQuotesLeft } from "react-icons/im";
 
-const breadCrumbData = [{ name: 'about', link: '/about' }, { name: ' / chairmen message', rout: "chairmen-msg" }]
+const breadCrumbData = [{ name: 'home', link: '/' },{ name: ' / about', link: '/about' }, { name: ' / chairmen message', rout: "chairmen-msg" }]
+
+
+export async function generateMetadata() {
+    const chaiman = await UseGetChairmanMsg('chairman');
+    const chaimanInfo = chaiman[0];
+    return {
+        title: 'Nanco | about | chairman messages',
+        description: chaimanInfo?.message,
+    }
+}
+
 
 const page = async () => {
     const chaiman = await UseGetChairmanMsg('chairman');

@@ -9,14 +9,16 @@ import Loading from '@/components/Shared/Loading/Loading';
 import TopSection from '@/components/Shared/TopSection/TopSection';
 import UseGetAllCategories from '@/Hooks/Home/UseGetAllCategories';
 import UseHomeSection1 from '@/Hooks/Home/UseHomeSection1';
+import UseGetClients from '@/Hooks/UseGetClients';
 import React, { Suspense } from 'react';
 
 const Home = async () => {
     const countInfo = UseHomeSection1();
     const categoriesPromise = UseGetAllCategories();
+    const clients = UseGetClients();
     return (
         <>
-            <Hero countInfo={countInfo}/>
+            <Hero countInfo={countInfo} />
 
             <Suspense fallback={<Loading />}>
                 <ProjectCouter countInfo={countInfo} />
@@ -28,11 +30,12 @@ const Home = async () => {
 
             <HomeProjects />
 
-            <HomeClientsSection />
+            <Suspense fallback={<Loading />}>
+                <HomeClientsSection clients={clients} />
+            </Suspense>
 
             <HomeContact />
 
-            
         </>
     );
 };

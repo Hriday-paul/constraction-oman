@@ -4,7 +4,7 @@ export default function UpperSection({ icon, text, isRed, rout }) {
   return (
 
       <Link href={rout} 
-        className={`w-full p-8 cursor-pointer  rounded-md ${!isRed ? "bg-primary" : "bg-secondary"
+        className={`w-full min-w-12 p-3 md:p-0 lg:p-5 xl:p-8 cursor-pointer  rounded-md ${!isRed ? "bg-primary" : "bg-secondary"
           } relative overflow-hidden`}
       >
         <div className="shade  flex justify-center translate-x-28  text-[100px] scale-150 opacity-30">
