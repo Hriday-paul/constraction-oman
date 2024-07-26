@@ -15,30 +15,32 @@ export default function layout({ children }) {
             link: "/buisiness-lines",
         },
         {
-            name: " / engineering-constraction",
-            link: "/engineering-constraction",
+            name: " / mepi",
+            link: "/mepi",
         },
-    ]
+    ];
+
     const subRouts = [
         {
-            name : 'Prestigius Projects',
-            rout : '/buisiness-lines/engineering-constraction/prestigius-projects',
-            icon : <BiSolidSchool />
+            name: 'Prestigius Projects',
+            rout: '/buisiness-lines/mepi/prestigius-projects',
+            icon: <BiSolidSchool />
         },
         {
-            name : 'Why Us',
-            rout : '/buisiness-lines/engineering-constraction/why-us',
-            icon : <FaRegHandshake />
+            name: 'Why Us',
+            rout: '/buisiness-lines/mepi/why-us',
+            icon: <FaRegHandshake />
         },
         {
-            name : 'Prestigius Projects',
-            rout : '/buisiness-lines/engineering-constraction/core-sector',
-            icon : <IoSettingsOutline />
+            name: 'Prestigius Projects',
+            rout: '/buisiness-lines/mepi/core-sector',
+            icon: <IoSettingsOutline />
         },
     ]
+
     return (
         <div>
-            <TopSection title={'Engineering & constraction'} routs={routs} />
+            <TopSection title={'MEPI'} routs={routs} />
 
             <div className="">
                 <div className="max-w-7xl mx-auto px-4 ">

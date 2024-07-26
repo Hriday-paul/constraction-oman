@@ -41,8 +41,8 @@ const menu = [
   {
     item: "PEOPLE",
     subItem: {
-      "BOARD OF DIRECTORS": "/people/board-of-directors",
-      "SENIOR LEADERSHIP": "/people/seniour-leadership",
+      "BOARD OF DIRECTORS": "/board-of-directors",
+      "SENIOR LEADERSHIP": "/seniour-leadership",
     },
     direction: "right",
   },

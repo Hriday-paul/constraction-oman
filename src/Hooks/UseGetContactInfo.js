@@ -1,8 +1,7 @@
 
-
-const UseGetEngineeringProjects = async () => {
+const UseGetContactInfo = async () => {
     try {
-        const response = await fetch(process.env.SERVER_URL +'/projects?category=1',
+        const response = await fetch(process.env.SERVER_URL +`/contact`,
             {
                 next:
                     { revalidate: 5 }
@@ -15,5 +14,5 @@ const UseGetEngineeringProjects = async () => {
     }
 };
 
-export default UseGetEngineeringProjects;
+export default UseGetContactInfo;
 

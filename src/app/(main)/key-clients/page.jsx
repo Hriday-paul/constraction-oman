@@ -1,6 +1,7 @@
 import TopSection from "@/components/Shared/TopSection/TopSection"
 import UseGetClients from "@/Hooks/UseGetClients"
 import Image from "next/image";
+import Link from "next/link";
 
 const breadCrumbData = [{ name: 'home', link: '/' }, { name: ' / clients', rout: "/key-clients" }];
 
@@ -24,7 +25,7 @@ export default async function page() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-[4px] relative border-white items-center">
                         <div className="absolute w-full h-full pointer-events-none border-white border-2 left-0 top-0"></div>
                         {clients.map((client) => {
-                            return <ClientLogoImage src={client?.image} key={client.name + client.id} />;
+                            return <ClientLogoImage src={client?.image} key={client.name + client.id} webUrl={client?.website_url}/>;
                         })}
                     </div>
                 </div>
@@ -34,13 +35,13 @@ export default async function page() {
 }
 
 
-function ClientLogoImage({ src }) {
+function ClientLogoImage({ src, webUrl }) {
     return (
         <div className="border w-full h-full flex items-center justify-center">
             <div className="size-56 md:size-80 justify-center items-center flex">
                 <div className="relative cursor-pointer group overflow-hidden  h-ful w-full ">
                     <div className="relative w-full h-full duration-300 group-hover:-translate-y-[100%] flex justify-center item ">
-                        <div className="w-full h-full justify-center items-center flex">
+                        <Link href={webUrl || '#'} className="w-full h-full justify-center items-center flex">
                             <Image
                                 src={src}
                                 height={500}
@@ -48,8 +49,8 @@ function ClientLogoImage({ src }) {
                                 className="w-40 h-auto object-contain"
                                 alt="nanco client logo"
                             />
-                        </div>
-                        <div className="absolute flex justify-center items-center w-full h-[100%]  top-[100%] left-0">
+                        </Link>
+                        <Link href={webUrl || '#'}  className="absolute flex justify-center items-center w-full h-[100%]  top-[100%] left-0">
                             <Image
                                 src={src}
                                 height={500}
@@ -57,7 +58,7 @@ function ClientLogoImage({ src }) {
                                 className="w-40 h-auto object-contain"
                                 alt="nanco client logo"
                             />
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>

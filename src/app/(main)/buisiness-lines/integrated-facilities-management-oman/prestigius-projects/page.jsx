@@ -4,12 +4,12 @@ import UseGetProjectsByCategory from "@/Hooks/BusinessLines/UseGetProjectsByCate
 
 
 export const metadata = {
-  title: 'Nanco | business-lines | engineering & construction | projects',
-  description: 'Our Best projects in engineering & construction on business lines.',
+  title: 'Nanco | business-lines | integrated facilities management oman | projects',
+  description: 'Our Best projects in integrated facilities management on business lines.',
 }
 
 export default async function prestigiusProjects() {
-  const projects = await UseGetProjectsByCategory({ category: 1 });
+  const projects = await UseGetProjectsByCategory({category : 2});
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -17,7 +17,7 @@ export default async function prestigiusProjects() {
         {
           projects?.map((projectInfo) => {
             return <Project
-              key={projectInfo?.name + projectInfo?.id}
+              key={projectInfo?.name+projectInfo?.id}
               image={projectInfo?.images.split(',')[0]}
               title={projectInfo?.name}
               date={projectInfo?.end_date}

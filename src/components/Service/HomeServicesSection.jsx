@@ -19,14 +19,15 @@ export default function HomeServicesSection() {
 
 function Card({ children, Icon, link }) {
   return (
-    <Link href={link} className="relative self-start my-9 md:my-0 mx-auto md:mr-auto md:mx-0 w-80 md:w-72 aspect-square flex flex-col gap-3 border justify-center items-start py-20 px-8 rounded-lg shadow-xl border-gray-200 overflow-hidden group">
-      <span className="text-7xl text-secondary group-hover:text-white self-start duration-500">
+    <Link href={link} className="relative self-start my-9 md:my-0 mx-auto md:mr-auto md:mx-0 w-80 md:w-72 aspect-square flex flex-col gap-3 border justify-center items-start py-20 px-8 rounded border-gray-300 overflow-hidden group">
+      <span className="text-7xl group-hover:scale-95 duration-700 text-secondary self-start">
         {Icon ? Icon : <LiaCitySolid />}
       </span>
-      <h2 className="text-[#1B1A1A] group-hover:text-white text-xl  md:text-2xl duration-500">
+      <span className="border-t border-gray-300 w-full my-3"></span>
+      <h2 className="text-black font-medium text-xl  md:text-2xl duration-500">
         {children ? children : "Please write some content"}
       </h2>
-      <div className="group-hover:scale-100 scale-0 transition-all duration-500 w-[400%] translate-x-1/2 translate-y-1/2 aspect-square absolute bottom-0 right-0 bg-secondary -z-10 rounded-full"></div>
+      <div className="group-hover:scale-100 scale-0 transition-all duration-700 w-[400%] translate-x-1/2 translate-y-1/2 aspect-square absolute bottom-0 right-0 bg-gray-100 -z-10 rounded-full"></div>
     </Link>
   );
 }
