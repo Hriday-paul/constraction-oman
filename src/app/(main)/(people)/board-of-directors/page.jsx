@@ -11,7 +11,7 @@ export const metadata = {
 const routs = [
     {
         name: "home",
-        link: "/home",
+        link: "/",
     },
     {
         name: " / board of directors",
@@ -25,8 +25,8 @@ export default async function page() {
     return (
         <div>
             <TopSection title={'Board of Directors'} routs={routs} />
-            <div className="bg-slate-50 py-10">
-                <div className="max-w-7xl mx-auto px-4">
+            <div className="">
+                <div className="">
                     <OurDirectors peoples={peoples} />
                 </div>
             </div>

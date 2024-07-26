@@ -32,7 +32,7 @@ export default function layout({ children }) {
             icon: <FaRegHandshake />
         },
         {
-            name: 'Prestigius Projects',
+            name: 'Core Sectors',
             rout: '/buisiness-lines/mepi/core-sector',
             icon: <IoSettingsOutline />
         },
@@ -43,7 +43,7 @@ export default function layout({ children }) {
             <TopSection title={'MEPI'} routs={routs} />
 
             <div className="">
-                <div className="max-w-7xl mx-auto px-4 ">
+                <div className="max-w-7xl mx-auto px-4 pb-10">
                     <div>
                         <BusinessLineSection subRouts={subRouts}/>
                     </div>

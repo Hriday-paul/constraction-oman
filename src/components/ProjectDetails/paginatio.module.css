@@ -1,0 +1,7 @@
+.swiper-custom-bullet {
+  @apply inline-block bg-gray-300 size-2 rounded-full border shadow-xl;
+}
+
+.swiper-custom-bullet.swiper-custom-bullet-active {
+  @apply inline-block bg-secondary size-2 rounded-full shadow-xl;
+}

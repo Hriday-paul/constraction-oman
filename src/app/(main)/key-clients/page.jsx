@@ -16,7 +16,7 @@ export default async function page() {
     return (
         <div>
             <TopSection title={"Our Clients"} routs={breadCrumbData} />
-            <div className="mx-auto max-w-7xl px-4">
+            <div className="mx-auto max-w-7xl px-4 pt-10 pb-20">
                 <div className="my-10 lg:my-14 xl:my-16 w-11/12 md:w-5/6 lg:w-3/5 mx-auto">
                     <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-black">KEEPING GOOD COMPANY</h2>
                     <p className="text-sm md:text-base xl:text-lg font-medium text-gray-700 mt-4 xl:mt-6 leading-6 xl:leading-7">We exist to help our clients and partners build their dreams. Below are just some of our valued customers, as well as what they have to say about working with us</p>

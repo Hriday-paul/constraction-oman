@@ -10,14 +10,14 @@ export default async function ImageContainer({bestProjects:projectsPromise}) {
             <div className=' flex flex-col justify-center place-items-center h-full gap-3'>
                 {
                     bestProjects?.map((project, indx) => {
-                        return indx <= 3 && <SmallImage key={project.id} image={project.images.split(',')[0]} title={project.name} details={project.details}/>
+                        return indx <= 3 && <SmallImage key={project?.id} id={project?.id} image={project?.images?.split(',')[0]} title={project?.name} details={project?.details}/>
                     })
                 }
             </div>
             <div className=' flex flex-col justify-center place-items-center h-full lg:h-[calc(100%+10%)] gap-3'>
                 {
                     bestProjects?.map((project, indx) => {
-                        return (indx >= 4 && indx <= 5) && <SmallImage key={project.id} image={project.images.split(',')[0]} title={project.name} details={project.details}/>
+                        return (indx >= 4 && indx <= 5) && <SmallImage key={project?.id} id={project?.id} image={project?.images?.split(',')[0]} title={project?.name} details={project?.details}/>
                     })
                 }
                 
@@ -25,12 +25,10 @@ export default async function ImageContainer({bestProjects:projectsPromise}) {
             <div className=' grid col-span-2 lg:col-span-1 grid-cols-2 lg:grid-cols-1  justify-center place-items-center h-full gap-3'>
                 {
                     bestProjects?.map((project, indx) => {
-                        return (indx >= 6 && indx <= 8) && <SmallImage key={project.id} image={project.images.split(',')[0]} title={project.name} details={project.details}/>
+                        return (indx >= 6 && indx <= 8) && <SmallImage key={project?.id} id={project?.id} image={project?.images?.split(',')[0]} title={project?.name} details={project?.details}/>
                     })
                 }
-                {/* <SmallImage image={project4} />
-                <SmallImage image={project5} />
-                <SmallImage image={project6} /> */}
+                
             </div>
 
         </div>

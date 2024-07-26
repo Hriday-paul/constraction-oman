@@ -3,7 +3,6 @@ import db from '@/DB/database'
 export const GET = async (request) => {
     try {
         const searchParams = request.nextUrl.searchParams;
-        console.log(searchParams)
         let projectsCommand = `select projects.id, projects.name, projects.details, projects.start_date, projects.end_date, projects.location, project_types.service_name as service_name , p_images.images, peoples.position as project_manager_position, peoples.name as project_manager_name, peoples.image as manager_image, categories.type_name as category, categories.icon_image as category_icon
         from projects 
         left JOIN project_types
@@ -21,6 +20,7 @@ export const GET = async (request) => {
             const category = searchParams.get('category');
             const sector = searchParams.get('sector');
             const limit = searchParams.get('limit');
+            const sort = searchParams.get('sortByDate');
             if (query == 'best') {
                 projectsCommand += 'and is_best_projects = true'
             }
@@ -32,6 +32,9 @@ export const GET = async (request) => {
             }
             if (limit) {
                 projectsCommand += ` limit ${parseInt(limit)}`
+            }
+            if (sort && sort == 1) {
+                projectsCommand += ` order by projects.end_date`
             }
         }
 

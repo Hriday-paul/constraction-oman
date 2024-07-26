@@ -67,7 +67,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t">
+    <footer className="bg-slate-50 border-t">
       <div className=" mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="container">
           <Image height={500} width={500} src={BlackLogo} className="h-12 w-auto" />
