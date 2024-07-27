@@ -1,7 +1,7 @@
 import Link from "next/link";
 import HeroContent from "./HeroContent";
 import NextSlider from "./NextSlider";
-
+import Image from "next/image";
 
 const images = [
   "https://raw.githubusercontent.com/ansanonymo/nanco/master/src/asset/slide/slide-1.webp",
@@ -30,7 +30,7 @@ function ImageCard({ imageSrc }) {
   return (
     <div className="hidden lg:flex pointer-events-auto relative translate-y-20 lg:translate-y-56 self-end  w-full max-w-[250px] text-white gap-4  bg-primary rounded-lg flex-col items-center pb-8">
       <div className="absolute top-0 translate-y-[-50%] h-40 w-40 rounded-full overflow-hidden border-4 border-primary ">
-        <img className="w-full" src={imageSrc} alt="chairman image" />
+        <Image className="w-full h-auto" height={500} width={500} src={imageSrc} alt="chairman image" />
       </div>
 
       {/* imageplace holder */}

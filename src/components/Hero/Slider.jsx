@@ -31,6 +31,7 @@ export default function Slider({ images }) {
               height={800}
               width={2000}
               className="brightness-50 h-full w-full min-h-[600px] object-cover select-none"
+              alt="nanco slider image"
             />
           </SwiperSlide>
         );

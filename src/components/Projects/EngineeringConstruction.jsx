@@ -1,4 +1,5 @@
 import Project from "../BuissnessLines/Project";
+import EmptyData from "../Shared/EmptyData/EmptyData";
 
 
 export default async function EngineeringConstruction({ projects : ProjectList }) {

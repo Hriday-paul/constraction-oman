@@ -16,6 +16,7 @@ export default function ProjectDescription({ data }) {
             width={3000}
             height={3000}
             className="w-full h-full object-contain"
+            alt="project image"
           />
         </div>
       </div>

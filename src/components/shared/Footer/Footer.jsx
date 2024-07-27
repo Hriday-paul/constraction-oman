@@ -70,7 +70,7 @@ export default function Footer() {
     <footer className="bg-slate-50 border-t">
       <div className=" mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="container">
-          <Image height={500} width={500} src={BlackLogo} className="h-12 w-auto" />
+          <Image height={500} width={500} src={BlackLogo} alt="logo" className="h-12 w-auto" />
         </div>
         <div className=" ">
           <div className=" grid md:gap-10 gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 container">

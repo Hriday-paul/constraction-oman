@@ -42,6 +42,7 @@ connection.on('connection', (connec) => {
 
 connection.on('error', (err) => {
   console.error('Database error:', err);
+  process.exit(1);
 });
 
 export const query = util.promisify(connection.query).bind(connection);
