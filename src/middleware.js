@@ -9,8 +9,8 @@ export function middleware(request) {
   if (goingRout === '/buisiness-lines' || goingRout === '/buisiness-lines/engineering-constraction') {
     return NextResponse.redirect(new URL('/buisiness-lines/engineering-constraction/prestigius-projects', request.url))
   }
-  if (goingRout === '/buisiness-lines/integrated-facilities-management-oman') {
-    return NextResponse.redirect(new URL('/buisiness-lines/integrated-facilities-management-oman/prestigius-projects', request.url))
+  if (goingRout === '/buisiness-lines/water-proof-flooring-facilities') {
+    return NextResponse.redirect(new URL('/buisiness-lines/water-proof-flooring-facilities/prestigius-projects', request.url))
   }
   if (goingRout === '/buisiness-lines/mepi') {
     return NextResponse.redirect(new URL('/buisiness-lines/mepi/prestigius-projects', request.url))
@@ -26,5 +26,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/buisiness-lines', '/buisiness-lines/engineering-constraction', '/buisiness-lines/integrated-facilities-management-oman', '/buisiness-lines/mepi', '/about'],
+  matcher: ['/buisiness-lines', '/buisiness-lines/engineering-constraction', '/buisiness-lines/water-proof-flooring-facilities', '/buisiness-lines/mepi', '/about'],
 }

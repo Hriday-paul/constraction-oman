@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function SmallImage({ image, title, details, id }) {
+export default function SmallImage({ image, title, details, id, big }) {
   return (
     <Link href={`/projects/details/${id}`}>
       <div
-        className={`w-full min-h-40 h-full relative overflow-hidden rounded-xl  first:col-span-2 lg:first:col-span-1 group`}
+        className={`w-full ${big?"lg:max-h-[40rem] max-h-full" :"lg:max-h-64  md:max-h-64"} max-h-64  h-full relative overflow-hidden rounded-xl  first:col-span-2 lg:first:col-span-1 group`}
       >
         <div className="textBox title flex justify-start px-0 md:px-0 absolute w-full transition h-full top-0 left-0 bg-gradient-to-b from-transparent to-black opacity-0 hover:opacity-100 duration-1000 z-10">
           <div className=" absolute bottom-3 md:bottom-5 lg:bottom-8 py-5 md:py-0 px-5 md:px-8">
@@ -19,7 +19,7 @@ export default function SmallImage({ image, title, details, id }) {
         </div>
         <Image
           src={image}
-          height={5000}
+          height={0}
           width={5000}
           alt="nanco project image"
           className="group-hover:scale-110 duration-700 object-cover w-full h-full "

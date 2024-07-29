@@ -1,17 +1,19 @@
 import { LiaCitySolid } from "react-icons/lia";
 import Title from "../Shared/Title/Title";
 import Link from "next/link";
+import { GiWaterfall } from "react-icons/gi";
+import { RiGovernmentLine } from "react-icons/ri";
 
 export default function HomeServicesSection() {
   return (
     <>
-      <div className=" py-16">
-        <div className="container">
+      <div className=" pb-16">
+        <div className="max-w-7xl mx-auto px-4">
           <Title>What we build</Title>
           <div className="my-5 w-fit mx-auto md:grid md:grid-cols-2 md:my-0 md:gap-9 lg:flex">
             <Card link='/projects/engineering-constraction'>Construction and Engineering</Card>
-            <Card link='/projects/integrated-facilities-management-oman'>Intigrated Facilities-Oman</Card>
-            <Card link='/projects/mepi'>MEPI</Card>
+            <Card link='/projects/integrated-facilities-management-oman' Icon={<GiWaterfall />}>Water proof & Flooring facilities</Card>
+            <Card link='/projects/mepi' Icon={<RiGovernmentLine />}>MEPI</Card>
           </div>
         </div>
       </div>

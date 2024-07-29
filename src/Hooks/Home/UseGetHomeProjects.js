@@ -2,11 +2,15 @@
 
 const UseGetHomeProjects = async () => {
     try {
-        const response = await fetch(process.env.SERVER_URL +'/projects?type=best&limit=8',
+        const response = await fetch(process.env.SERVER_URL + '/projects?type=best&limit=8',
             {
                 next:
                     { revalidate: 5 }
             });
+        if (!response.ok) {
+            // This will activate the closest `error.js` Error Boundary
+            throw new Error('Failed to fetch data')
+        }
         const res = response.json();
         return res
     } catch (err) {

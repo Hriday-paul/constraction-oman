@@ -32,8 +32,8 @@ export default function ProjectCarousel({images}) {
               key={index+imageSrc}
             >
               <Image
-                width={3000}
-                height={3000}
+                width={30000}
+                height={30000}
                 src={imageSrc}
                 alt="project-image"
                 className="w-full h-44 md:h-96 lg:h-[600px] object-cover"

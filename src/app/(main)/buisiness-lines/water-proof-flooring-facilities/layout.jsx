@@ -15,32 +15,32 @@ export default function layout({ children }) {
             link: "/buisiness-lines",
         },
         {
-            name: " / IFM Oman",
-            link: "/integrated-facilities-management-oman",
+            name: " / WPFF",
+            link: "/water-proof-flooring-facilities",
         },
     ]
 
     const subRouts = [
         {
             name: 'Prestigius Projects',
-            rout: '/buisiness-lines/integrated-facilities-management-oman/prestigius-projects',
+            rout: '/buisiness-lines/water-proof-flooring-facilities/prestigius-projects',
             icon: <BiSolidSchool />
         },
         {
             name: 'Why Us',
-            rout: '/buisiness-lines/integrated-facilities-management-oman/why-us',
+            rout: '/buisiness-lines/water-proof-flooring-facilities/why-us',
             icon: <FaRegHandshake />
         },
         {
             name: 'Core Sectors',
-            rout: '/buisiness-lines/integrated-facilities-management-oman/core-sector',
+            rout: '/buisiness-lines/water-proof-flooring-facilities/core-sector',
             icon: <IoSettingsOutline />
         },
     ]
 
     return (
         <div>
-            <TopSection title={'IFM Oman'} routs={routs} />
+            <TopSection title={'Water Prof & FF'} routs={routs} />
 
             <div className="">
                 <div className="max-w-7xl mx-auto px-4 pb-10">

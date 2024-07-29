@@ -31,3 +31,7 @@ export const GET = async (request) => {
         return Response.json({ error: 'something went wrong, try again' }, { status: 400 })
     }
 }
+
+export const PUT = async (request) => {
+    const {name, email, phone, message} = await request.json();
+}

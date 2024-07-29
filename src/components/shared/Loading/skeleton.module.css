@@ -1,0 +1,16 @@
+.skeletonanimation {
+  animation: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-name: loadingskeleton;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes loadingskeleton {
+  from {
+    @apply bg-gray-100;
+  }
+  to {
+    @apply bg-gray-200;
+  }
+}

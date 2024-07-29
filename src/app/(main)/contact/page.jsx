@@ -16,7 +16,7 @@ const routs = [
 ];
 
 export const metadata = {
-    title: 'Nanco | contact',
+    title: 'Nancco | contact',
     description: 'For more information and how we can meet your needs with nanco team.',
 }
 

@@ -15,4 +15,8 @@
       margin: 0 auto;
       padding: 20px;
     }
+    
   }
+  /* .swiper-button-prev:after, .swiper-button-next:after{
+    @apply !text-base !lg:text-lg text-secondary;    
+  }  */

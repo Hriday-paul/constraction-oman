@@ -2,11 +2,15 @@
 
 const UseHomeSection1 = async () => {
     try {
-        const response = await fetch(process.env.SERVER_URL +'/home/section1',
+        const response = await fetch(process.env.SERVER_URL + '/home/section1',
             {
                 next:
                     { revalidate: 5 }
             });
+        if (!response.ok) {
+            // This will activate the closest `error.js` Error Boundary
+            throw new Error('Failed to fetch data')
+        }
         const res = response.json();
         return res
     } catch (err) {

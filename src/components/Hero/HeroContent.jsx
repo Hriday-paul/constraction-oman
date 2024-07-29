@@ -6,7 +6,7 @@ export default function HeroContent() {
         <span className="text-secondary">services</span>
       </h1>
 
-      <p className="text-sm  md:text-xl w-4/5 pointer-events-auto">
+      <p className="text-sm  md:text-xl w-4/5 lg:w-3/5 pointer-events-auto line-clamp-2">
         OUR CONSISTENT PERFORMANCE AND IMPECCABLE SERVICE DELIVERY HAVE MADE US
       </p>
 

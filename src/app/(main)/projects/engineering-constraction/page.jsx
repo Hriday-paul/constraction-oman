@@ -9,6 +9,7 @@ import React, { Suspense } from 'react'
 export default async function page({ searchParams }) {
     const sectors = await UseSectorsByCategory({ category_id: 1 });
     const projects = UseGetProjectsByFilter({ category_id: 1, sector_id: searchParams?.sector, search: searchParams?.search })
+
     
     const routs = [
         {

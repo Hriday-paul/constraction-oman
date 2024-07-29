@@ -1,8 +1,6 @@
-
 'use client'
+
 import { IoMenuOutline } from "react-icons/io5";
-import LogoBlack from "@/images/nanco-logo-black.png";
-import LogoWhite from "@/images/nanco-logo-white.png";
 import { Drawer, Menu } from "antd";
 import { useEffect, useRef, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
@@ -22,7 +20,7 @@ const menu = [
     item: "BUSINESS LINES",
     subItem: {
       "ENGINEERING & CONSTRUCITON": "/buisiness-lines/engineering-constraction",
-      "Integrated Facilities Management Oman": "/buisiness-lines/integrated-facilities-management-oman",
+      "Water proof & Flooring facilities": "/buisiness-lines/water-proof-flooring-facilities",
       MEPI: "/buisiness-lines/mepi",
     },
   },
@@ -30,7 +28,7 @@ const menu = [
     item: "PROJECTS",
     subItem: {
       "ENGINEERING & CONSTRUCITON": "/projects/engineering-constraction",
-      "INTEGRATED FACILITES MANAGEMENT-OMAN": "/projects/integrated-facilities-management-oman",
+      "Water proof & Flooring facilities": "/projects/water-proof-flooring-facilities",
       MEPI: "/projects/mepi",
     },
   },
@@ -42,7 +40,6 @@ const menu = [
     item: "PEOPLE",
     subItem: {
       "BOARD OF DIRECTORS": "/board-of-directors",
-      "SENIOR LEADERSHIP": "/seniour-leadership",
     },
     direction: "right",
   },
@@ -92,12 +89,12 @@ const Nav = () => {
         <div className=" py-2 max-w-7xl mx-auto">
 
           <div className="flex flex-row justify-between items-center p-3 relative">
-            <Link href='/' className="w-[60px]">
+            <Link href='/' className="w-24">
               <Image
                 height={500}
                 width={500}
                 src={logo ===
-                  "white" ? LogoWhite : LogoBlack}
+                  "white" ? '/nanco-logo-white.png' : '/nanco-logo-black.png'}
                 className="w-full h-auto"
                 alt="nanco oman logo"
               />
@@ -195,14 +192,14 @@ function DropDownMenu({ subItem, direction = "left" }) {
       className={`absolute shadow-xl hover:opacity-1 opacity-0 translate-y-14 h-0 overflow-hidden group-hover:h-auto group-hover:overflow-visible group-hover:block ease-linear group-hover:opacity-100 group-hover:translate-y-7 hover:translate-y-7 transition md:absolute top-5 bg-white text-black md:shadow-lg md:rounded-sm z-50  ${direction === "left" ? "left-0" : "right-0"
         }`}
     >
-      <ul className="p-8 min-w-80 flex flex-col gap-4 hover:delay-300">
+      <ul className="min-w-80 flex flex-col hover:delay-300">
         {links.map(([name, link]) => {
           return (
             <li
               key={crypto.randomUUID()}
               
             >
-              <Link href={link} className="hover:translate-x-1 transition-all duration-300 flex justify-between items-center hover:text-primary">
+              <Link href={link} className=" border-b flex justify-between items-center duration-300 px-5 py-4 hover:bg-slate-50 hover:text-secondary font-medium">
                 <p className=" text-sm">
                   {name}
                 </p>
