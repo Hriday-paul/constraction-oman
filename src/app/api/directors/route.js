@@ -1,5 +1,6 @@
 import db from '@/DB/database'
 
+
 export const GET = async () => {
     try {
         let directorsCommand = 'select * from directors';

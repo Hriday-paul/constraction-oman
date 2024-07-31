@@ -1,8 +1,8 @@
 
 
-const UseGetChairmanMsg = async () => {
+const UseGetMdsMsg = async () => {
     try {
-        const response = await fetch(process.env.SERVER_URL + `/chairman`,
+        const response = await fetch(process.env.SERVER_URL + `/managing_director`,
             {
                 next:
                     { revalidate: 5 }
@@ -19,4 +19,4 @@ const UseGetChairmanMsg = async () => {
     }
 };
 
-export default UseGetChairmanMsg;
+export default UseGetMdsMsg;

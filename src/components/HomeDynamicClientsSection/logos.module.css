@@ -3,7 +3,9 @@
 }
 
 .slideanimation {
-  animation: logoslide 20s linear infinite;
+  animation-name: logoslide;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @keyframes logoslide {

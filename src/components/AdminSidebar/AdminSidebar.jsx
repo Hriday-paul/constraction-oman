@@ -231,7 +231,7 @@ export default function AdminSidebar({ children }) {
           </Sidebar>
 
 
-          <main className={`w-full ${collapsed ? 'lg:w-[calc(100vw-80px)]' : 'lg:w-[calc(100vw-280px)]'}`}>
+          <main className={`w-full ${collapsed ? 'lg:w-[calc(100vw-80px)]' : 'lg:w-[calc(100vw-300px)]'}`}>
 
             <div className='flex flex-row items-center border-gray-300 border-b'>
               {/* // large screen collapse */}

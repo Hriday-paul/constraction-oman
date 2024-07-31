@@ -8,8 +8,8 @@ const breadCrumbData = [{ name: 'home', link: '/' },{ name: ' / about', link: '/
 
 
 export async function generateMetadata() {
-    const chaiman = await UseGetChairmanMsg('chairman');
-    const chaimanInfo = chaiman[0];
+    const chaimanInfo = await UseGetChairmanMsg();
+
     return {
         title: 'Nanco | about | chairman messages',
         description: chaimanInfo?.message,
@@ -18,8 +18,7 @@ export async function generateMetadata() {
 
 
 const page = async () => {
-    const chaiman = await UseGetChairmanMsg('chairman');
-    const chaimanInfo = chaiman[0];
+    const chaimanInfo = await UseGetChairmanMsg();
     return (
         <div>
             <TopSection title={"Chairmen's"} routs={breadCrumbData} />
