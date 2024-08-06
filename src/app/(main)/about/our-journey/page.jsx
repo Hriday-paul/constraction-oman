@@ -15,7 +15,7 @@ export const metadata = {
 }
 
 
-const page = async () => {
+const OurJourney = async () => {
     const projects = await UseGet_Sort_date_projects();
 
     return (
@@ -53,7 +53,7 @@ const page = async () => {
     );
 };
 
-export default page;
+export default OurJourney;
 
 
 function TimeLineProject({ heading, description, img, years, id, indx }) {

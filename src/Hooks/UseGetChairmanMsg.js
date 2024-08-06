@@ -1,8 +1,8 @@
 
 
-const UseGetChairmanMsg = async (position) => {
+const UseGetChairmanMsg = async () => {
     try {
-        const response = await fetch(process.env.SERVER_URL + `/director?position=${position}`,
+        const response = await fetch(process.env.SERVER_URL + `/chairman`,
             {
                 next:
                     { revalidate: 5 }

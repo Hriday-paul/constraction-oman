@@ -1,5 +1,6 @@
 import TopSection from "@/components/Shared/TopSection/TopSection";
 import UseGetChairmanMsg from "@/Hooks/UseGetChairmanMsg";
+import UseGetMdsMsg from "@/Hooks/UseGetMdsMsg";
 import Image from "next/image";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { ImQuotesLeft } from "react-icons/im";
@@ -8,8 +9,7 @@ const breadCrumbData = [{ name: 'home', link: '/' },{ name: ' / about', link: '/
 
 
 export async function generateMetadata() {
-    const manager = await UseGetChairmanMsg('Managing Director');
-    const managerInfo = manager[0];
+    const managerInfo = await UseGetMdsMsg();
     return {
         title: 'Nanco | about | manager messages',
         description: managerInfo?.message,
@@ -18,8 +18,7 @@ export async function generateMetadata() {
 
 
 export default async function page() {
-    const manager = await UseGetChairmanMsg('Managing Director');
-    const managerInfo = manager[0];
+    const managerInfo = await UseGetMdsMsg();
     
     return (
         <div>

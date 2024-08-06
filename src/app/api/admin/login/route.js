@@ -6,7 +6,7 @@ export const POST = async (request) => {
     try {
         const body = await request.json();
         if (!body.user_name || !body.password) {
-            return Response.json({ error: 'Filled all valid input' }, { status: 400 });
+            return Response.json({ error: 'Filled all valid input' }, { status: 401 });
         }
 
         let adminFindCommand = `SELECT * FROM admin where user_name = '${body.user_name}'`
@@ -41,6 +41,6 @@ export const POST = async (request) => {
 
     } catch (err) {
         console.log(err)
-        return Response.json({ error: 'something went wrong, try again' }, { status: 400 })
+        return Response.json({ error: 'something went wrong, try again' }, { status: 500 })
     }
 }

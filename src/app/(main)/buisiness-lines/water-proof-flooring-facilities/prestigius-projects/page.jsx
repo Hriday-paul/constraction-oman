@@ -18,7 +18,7 @@ export default async function prestigiusProjects() {
           projects?.map((projectInfo) => {
             return <Project
               key={projectInfo?.name+projectInfo?.id}
-              image={projectInfo?.images.split(',')[0]}
+              image={projectInfo?.images?.split(',')[0]}
               title={projectInfo?.name}
               date={projectInfo?.end_date}
               desc={projectInfo?.details}

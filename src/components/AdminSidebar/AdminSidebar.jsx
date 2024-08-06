@@ -13,6 +13,7 @@ import { FiCircle } from "react-icons/fi";
 import { IoMdSettings } from "react-icons/io";
 import { IoPeopleOutline } from "react-icons/io5";
 import { TbLayersIntersect } from "react-icons/tb";
+import { RiMessage2Line } from "react-icons/ri";
 
 export default function AdminSidebar({ children }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -32,34 +33,36 @@ export default function AdminSidebar({ children }) {
       subItem: [
         {
           title: 'All Projects',
-          icon: <FaLayerGroup className='text-xs' />,
+          icon: <FiCircle className='text-xs' />,
           link: RootPath + '/projects',
           subItem: []
         },
         {
-          title: 'Add Engineering & construction',
+          title: 'Add New Project',
           icon: <FiCircle className='text-xs' />,
-          link: RootPath + '/projects/add-engineering-construction',
+          link: RootPath + '/projects/add-project',
           subItem: []
         },
-        {
-          title: 'Add Water Prof & Flooring',
-          icon: <FiCircle className='text-xs' />,
-          link: RootPath + '/projects/add-water-prof-flooring',
-          subItem: []
-        },
-        {
-          title: 'Add MEPI',
-          icon: <FiCircle className='text-xs' />,
-          link: RootPath + '/projects/add-mepi',
-          subItem: []
-        }
+
       ]
     },
     {
-      title: 'Add sector',
+      title: 'Sector',
       icon: <TbLayersIntersect className='text-lg' />,
-      link: "/xyz/admin/addSector"
+      subItem: [
+        {
+          title: 'All Sectors',
+          icon: <FiCircle className='text-xs' />,
+          link: RootPath + '/sector',
+          subItem: []
+        },,
+        {
+          title: 'Add New Sector',
+          icon: <FiCircle className='text-xs' />,
+          link: RootPath + '/sector/add-sector',
+          subItem: []
+        },
+      ]
     },
     {
       title: 'Clients',
@@ -90,7 +93,7 @@ export default function AdminSidebar({ children }) {
           link: RootPath + '/peoples',
           subItem: []
         },
-        
+
         {
           title: "Edit Chairmen",
           icon: <FiCircle className='text-xs' />,
@@ -115,7 +118,12 @@ export default function AdminSidebar({ children }) {
     {
       title: 'Edit Contact',
       icon: <LuContact2 className='text-lg' />,
-      link: RootPath + '/contact/edit-contact'
+      link: RootPath + '/edit-contact'
+    },
+    {
+      title: 'Message',
+      icon: <RiMessage2Line className='text-lg' />,
+      link: RootPath + '/message'
     },
     {
       title: 'Settings',
@@ -231,7 +239,7 @@ export default function AdminSidebar({ children }) {
           </Sidebar>
 
 
-          <main className={`w-full ${collapsed ? 'lg:w-[calc(100vw-80px)]' : 'lg:w-[calc(100vw-280px)]'}`}>
+          <main className={`w-full ${collapsed ? 'lg:w-[calc(100vw-80px)]' : 'lg:w-[calc(100vw-300px)]'}`}>
 
             <div className='flex flex-row items-center border-gray-300 border-b'>
               {/* // large screen collapse */}

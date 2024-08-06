@@ -25,25 +25,31 @@ import util from "util";
 // export const query = util.promisify(connection.query).bind(connection);
 // export default connection;
 
-// import mysql from 'mysql';
-// import util from 'util';
 
-const connection = mysql.createPool({
-  connectionLimit: 10,
+// Create a connection pool
+const pool = mysql.createPool({
+  connectionLimit: 10, // Adjust based on your needs
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME
 });
 
-connection.on('connection', (connec) => {
+// Promisify the query method for ease of use with async/await
+pool.query = util.promisify(pool.query);
+
+// Event listener for connection events
+pool.on('connection', (connection) => {
   console.log('DB connection established');
 });
 
-connection.on('error', (err) => {
+// Event listener for error events
+pool.on('error', (err) => {
   console.error('Database error:', err);
-  process.exit(1);
+  // You may want to handle reconnections or other error handling here
 });
 
-export const query = util.promisify(connection.query).bind(connection);
-export default connection;
+// Export the pool and query method
+export const query = (sql, params) => pool.query(sql, params);
+export default pool;
+

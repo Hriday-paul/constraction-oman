@@ -17,6 +17,13 @@
     }
     
   }
+
+  .swiper-button-prev, .swiper-button-next{
+    @apply !bg-black !px-4 md:!px-5 !py-1 md:!py-3
+  }
+  .swiper-button-prev::after, .swiper-button-next::after{
+    @apply !text-base md:!text-xl !text-secondary
+  }
   /* .swiper-button-prev:after, .swiper-button-next:after{
     @apply !text-base !lg:text-lg text-secondary;    
   }  */

@@ -2,7 +2,7 @@
 import { useLoginAdminMutation } from "@/Redux/Api/Api";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { CgSpinner } from "react-icons/cg";
 import { MdErrorOutline, MdOutlineDoneAll } from "react-icons/md";
 
@@ -18,7 +18,7 @@ export default function AdminLogin() {
         postLogin({ user_name: name, password })
     }
 
-    useMemo(() => {
+    useEffect(() => {
         if (isSuccess) {
             setMessage({ type: 'success', message: data || 'login successfully' });
             router.push('/xyz/admin')
@@ -26,7 +26,7 @@ export default function AdminLogin() {
         if (isError) {
             setMessage({ type: 'error', message: error?.data?.error || 'something went wrong' })
         }
-    }, [isSuccess, isError]);
+    }, [isSuccess, isError, data, error, router]);
 
 
     return (
