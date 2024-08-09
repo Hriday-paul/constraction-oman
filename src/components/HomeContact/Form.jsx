@@ -29,7 +29,7 @@ export default function Form() {
   }, [isSuccess, isError])
 
   return (
-    <div className="w-[100%] p-12 bg-white border h-full rounded-md">
+    <div className="w-[100%] p-8 md:p-10 lg:p-12 bg-white border h-full rounded-md">
       <form
         onSubmit={handleSubmit(handleSend)}
         className="flex w-full flex-col lg:flex-row md:flex-row  gap-4  justify-center place-items-start"
@@ -69,7 +69,7 @@ export default function Form() {
             className="w-full p-3 border rounded-md focus:outline-none"
           ></textarea>
           <div className="but">
-            <button disabled={isLoading} className="px-10 py-2 hover:bg-orange-600 border-none duration-200 transition-all bg-secondary text-white rounded-md flex flex-row items-center disabled:cursor-not-allowed disabled:bg-orange-300">
+            <button disabled={isLoading} className="px-10 py-2 hover:bg-orange-600 border-none duration-200 transition-all bg-secondary text-white rounded flex flex-row items-center disabled:cursor-not-allowed disabled:bg-orange-300 mt-2 lg:mt-0">
               {
                 isLoading && <CgSpinner className="animate-spin text-white text-xl mr-1" />
               }

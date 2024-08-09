@@ -1,6 +1,51 @@
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 import BlackLogo from "@/images/nanco-logo-black.png";
 import Image from "next/image";
+import Link from "next/link";
+
+
+const menu = [
+  {
+    item: "ABOUT US",
+    subItem: {
+      "OUR JOURNEY": "/about/our-journey",
+      "CHAIRMAN'S MESSAGE": "/about/chairmen-msg",
+      "MD'S MESSAGE": "/about/md-msg",
+      "Videos": "/about/videos",
+    },
+  },
+  {
+    item: "BUSINESS LINES",
+    subItem: {
+      "ENGINEERING & CONSTRUCITON": "/buisiness-lines/engineering-constraction",
+      "Water proof & Flooring facilities": "/buisiness-lines/water-proof-flooring-facilities",
+      MEPI: "/buisiness-lines/mepi",
+    },
+  },
+  {
+    item: "PROJECTS",
+    subItem: {
+      "ENGINEERING & CONSTRUCITON": "/projects?category=engineering-constraction",
+      "Water proof & Flooring facilities": "/projects?category=water-proof-flooring-facilities",
+      MEPI: "/projects?category=mepi",
+    },
+  },
+  {
+    item: "KEY CLIENTS",
+    link: "/key-clients",
+  },
+  {
+    item: "PEOPLE",
+    subItem: {
+      "BOARD OF DIRECTORS": "/board-of-directors",
+    },
+    direction: "right",
+  },
+  {
+    item: "CONTACT US",
+    link: "/contact",
+  },
+];
 
 const links = [
   {
@@ -8,15 +53,19 @@ const links = [
     links: [
       {
         text: "Our Journey",
-        link: "#",
+        link: "/about/our-journey",
       },
       {
         text: "Chairman's Message",
-        link: "#",
+        link: "/about/chairmen-msg",
       },
       {
         text: "MD's Message",
-        link: "#",
+        link: "/about/md-msg",
+      },
+      {
+        text: "Videos",
+        link: "/about/videos",
       },
     ],
   },
@@ -25,11 +74,15 @@ const links = [
     links: [
       {
         text: "Engineering & Construction",
-        link: "#",
+        link: "/buisiness-lines/engineering-constraction",
+      },
+      {
+        text: "Water proof & Flooring",
+        link: "/buisiness-lines/water-proof-flooring-facilitiesn",
       },
       {
         text: "MEPI",
-        link: "#",
+        link: "/buisiness-lines/mepi",
       },
     ],
   },
@@ -38,28 +91,28 @@ const links = [
     links: [
       {
         text: "Engineering & Construction",
-        link: "#",
+        link: "/projects?category=engineering-constraction",
       },
       {
-        text: "Integrated Facilites Management-Oman",
-        link: "#",
+        text: "Water proof & Flooring",
+        link: "/projects?category=water-proof-flooring-facilities",
       },
       {
         text: "MEPI",
-        link: "#",
+        link: "/projects?category=mepi",
       },
     ],
   },
   {
-    heading: "Peoples",
+    heading: "Others",
     links: [
       {
-        text: "Board of Directors",
-        link: "#",
+        text: "Peoples",
+        link: "/board-of-directors",
       },
       {
-        text: "Senior Leadership",
-        link: "#",
+        text: "Contact us",
+        link: "/contact",
       },
     ],
   },
@@ -67,10 +120,12 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-50 border-t">
-      <div className=" mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <footer className="bg-gray-900 border-t">
+      <div className=" mx-auto max-w-screen-xl px-4 pt-16 sm:px-6 lg:px-8">
         <div className="container">
-          <Image height={500} width={500} src={'/nanco-logo-black.png'} alt="logo" className="h-12 w-auto" />
+          <Link href={'/'}>
+            <img height={500} width={500} src={'/nanco-logo-white.png'} alt="logo" className="h-12 w-auto" />
+          </Link>
         </div>
         <div className=" ">
           <div className=" grid md:gap-10 gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 container">
@@ -79,7 +134,7 @@ export default function Footer() {
             })}
           </div>
         </div>
-        <FooterSocialLogo />
+        {/* <FooterSocialLogo /> */}
 
         <Copyright />
       </div>
@@ -90,7 +145,7 @@ export default function Footer() {
 function FooterList({ link: { heading, links } }) {
   return (
     <div className="">
-      <p className="font-medium text-gray-900 uppercase">{heading}</p>
+      <p className="font-medium text-gray-50 uppercase">{heading}</p>
 
       <ul className="mt-6 space-y-4 text-sm">
         {links.map((linkItem) => {
@@ -98,7 +153,7 @@ function FooterList({ link: { heading, links } }) {
             <li key={crypto.randomUUID()}>
               <a
                 href={linkItem.link}
-                className="text-gray-700 transition hover:text-primary"
+                className="text-gray-200 transition hover:text-secondary"
               >
                 {" "}
                 {linkItem.text}
@@ -128,7 +183,7 @@ function SocialIcon({ icon }) {
         href="#"
         rel="noreferrer"
         target="_blank"
-        className="text-gray-700 transition text-2xl"
+        className="text-gray-300 transition text-2xl"
       >
         {icon}
       </a>
@@ -139,33 +194,14 @@ function SocialIcon({ icon }) {
 function Copyright() {
   return (
     <div className="mt-8 border-t border-gray-100 pt-8 container">
-      <div className="flex flex-col justify-center items-center gap-y-5 md:justify-between md:flex-row">
-        <p className="text-xs text-gray-500">
-          &copy; 2022. Company Name. All rights reserved.
+      <div className="justify-center items-center">
+        <p className="text-xs text-gray-300 text-center">
+          &copy; 2024. NANCCO. All rights reserved. Powerd by<Link href="https://nanccodevelopers.vercel.app" target="_blank" className=" text-secondary transition">
+            {" "}
+            Webzo{" "}
+          </Link>.
         </p>
 
-        <ul className="mt-8 flex flex-wrap justify-start gap-4 text-xs sm:mt-0 lg:justify-end">
-          <li>
-            <a href="#" className="text-gray-500 hover:text-primary transition">
-              {" "}
-              Terms & Conditions{" "}
-            </a>
-          </li>
-
-          <li>
-            <a href="#" className="text-gray-500 hover:text-primary transition">
-              {" "}
-              Privacy Policy{" "}
-            </a>
-          </li>
-
-          <li>
-            <a href="#" className="text-gray-500 hover:text-primary transition">
-              {" "}
-              Cookies{" "}
-            </a>
-          </li>
-        </ul>
       </div>
     </div>
   );

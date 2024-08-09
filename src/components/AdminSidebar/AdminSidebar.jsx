@@ -7,19 +7,22 @@ import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import Hamburger from 'hamburger-react'
 import { AiOutlineMenuFold } from "react-icons/ai";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { FaLayerGroup } from "react-icons/fa";
+import { usePathname, useRouter } from "next/navigation";
+import { FaLayerGroup, FaRegFileVideo } from "react-icons/fa";
 import { FiCircle } from "react-icons/fi";
 import { IoMdSettings } from "react-icons/io";
 import { IoPeopleOutline } from "react-icons/io5";
 import { TbLayersIntersect } from "react-icons/tb";
 import { RiMessage2Line } from "react-icons/ri";
+import { VscSignOut } from "react-icons/vsc";
+import { Signout } from "@/B_middleware/Signout";
 
 export default function AdminSidebar({ children }) {
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
   const path = usePathname();
   const RootPath = '/xyz/admin'
+  const router = useRouter();
 
   const tabList = [
     {
@@ -55,7 +58,7 @@ export default function AdminSidebar({ children }) {
           icon: <FiCircle className='text-xs' />,
           link: RootPath + '/sector',
           subItem: []
-        },,
+        }, ,
         {
           title: 'Add New Sector',
           icon: <FiCircle className='text-xs' />,
@@ -126,6 +129,24 @@ export default function AdminSidebar({ children }) {
       link: RootPath + '/message'
     },
     {
+      title: 'Videos',
+      icon: <FaRegFileVideo className='text-lg' />,
+      subItem: [
+        {
+          title: "Videos",
+          icon: <FiCircle className='text-xs' />,
+          link: RootPath + '/videos',
+          subItem: []
+        },
+        {
+          title: "Add New",
+          icon: <FiCircle className='text-xs' />,
+          link: RootPath + '/videos/add-video',
+          subItem: []
+        },
+      ]
+    },
+    {
       title: 'Settings',
       icon: <IoMdSettings className='text-lg' />,
       subItem: [
@@ -135,11 +156,27 @@ export default function AdminSidebar({ children }) {
           link: RootPath + '/settings/change-password',
           subItem: []
         },
+        {
+          title: "Signout",
+          icon: <VscSignOut className='text-base' />,
+          link: RootPath + '/settings/signout',
+          subItem: []
+        },
 
       ]
     },
-
   ];
+
+  const clickSignout = async () => {
+    try {
+      const res = await Signout();
+      if(res){
+        router.push('/xyz/admin/login')
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <div>
@@ -166,14 +203,8 @@ export default function AdminSidebar({ children }) {
                 <Link className='flex justify-center items-center' href="/">
                   <div className='flex flex-row items-center justify-center my-10'>
 
-                    <Image className="h-auto md:h-auto lg:h-auto w-8 md:w-14 lg:w-20 xl:w-24 xl:h-auto" src='/nanco-logo-white.png' height={200} width={200} alt="logo" />
-                    {/* <h1 className="uppercase text-lg md:text-2xl lg:text-3xl font-bold text-[#1451D2] font-unbounded flex flex-col">
-                                    DLJ
-                                </h1> */}
+                    <img className="h-auto md:h-auto lg:h-auto w-16 md:w-14 lg:w-20 xl:w-24 xl:h-auto" src='/nanco-logo-white.png' height={200} width={200} alt="logo" />
 
-                    {/* {
-                                            !collapsed && <h2 className='font-bold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-blue-200 to-rose-500 uppercase'>Dlz</h2>
-                                        } */}
                   </div>
 
                 </Link>
@@ -193,28 +224,40 @@ export default function AdminSidebar({ children }) {
 
                         {
                           tabs?.subItem?.map((tabinnerList, indx) => {
-                            return tabinnerList?.subItem.length > 0 ? <SubMenu key={indx + tabinnerList.title}
-                              icon={tabinnerList?.icon} label={tabinnerList?.title}
-                              className={`text-sm uppercase font-medium bg-[#333A48]`}>
-                              {
-                                tabinnerList?.subItem?.map((tab, indx) => {
-                                  return <MenuItem key={tab?.title + indx}
-                                    icon={tab?.icon}
-                                    component={<Link className={`${tab?.link == path ? 'bg-[#333A48]' : 'bg-[#1C2434]'} font-medium uppercase`} href={tab?.link} />}>
-                                    {tab?.title}
-                                  </MenuItem>
-                                })
-                              }
+                            return tabinnerList?.subItem.length > 0 ?
+                              <SubMenu key={indx + tabinnerList.title}
+                                icon={tabinnerList?.icon} label={tabinnerList?.title}
+                                className={`text-sm uppercase font-medium bg-[#333A48]`}>
+                                {
+                                  tabinnerList?.subItem?.map((tab, indx) => {
+                                    return (
+                                      <MenuItem key={tab?.title + indx}
+                                        icon={tab?.icon}
+                                        component={<Link className={`${tab?.link == path ? 'bg-[#333A48]' : 'bg-[#1C2434]'} font-medium uppercase`} href={tab?.link} />}>
+                                        {tab?.title}
+                                      </MenuItem>
+                                    )
+                                  })
+                                }
 
-                            </SubMenu>
+                              </SubMenu>
                               :
-                              <MenuItem
+                              tabinnerList?.title == 'Signout' ? <MenuItem
                                 className="text-sm"
+                                onClick={clickSignout}
                                 key={indx + tabinnerList.title}
                                 icon={tabinnerList?.icon}
-                                component={<Link className={`${tabinnerList?.link == path ? 'bg-[#333A48]' : 'bg-[#1C2434]'} font-medium uppercase`} href={tabinnerList?.link} />}>
+                                component={<div className={`${tabinnerList?.link == path ? 'bg-[#333A48]' : 'bg-[#1C2434]'} font-medium uppercase`}></div>}>
                                 {tabinnerList?.title}
                               </MenuItem>
+                                :
+                                <MenuItem
+                                  className="text-sm"
+                                  key={indx + tabinnerList.title}
+                                  icon={tabinnerList?.icon}
+                                  component={<Link className={`${tabinnerList?.link == path ? 'bg-[#333A48]' : 'bg-[#1C2434]'} font-medium uppercase`} href={tabinnerList?.link} />}>
+                                  {tabinnerList?.title}
+                                </MenuItem>
                           })
 
                         }
@@ -232,6 +275,13 @@ export default function AdminSidebar({ children }) {
                       </MenuItem>
                   })
                 }
+
+                {/* <MenuItem
+                  className="my-3"
+
+                  component={<Link className={`${'/xz/admin/setting/logout' == path ? 'bg-[#333A48]' : 'bg-[#1C2434]'} font-medium uppercase px-6`} href='/xz/admin/setting/logout' />}>
+                  Logout
+                </MenuItem> */}
 
               </div>
 

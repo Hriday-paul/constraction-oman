@@ -9,7 +9,7 @@ export default function TopSection({title, routs}) {
     style={{
       backgroundImage: `url(${imageUrl})`,
     }}
-      className="bg-center flex flex-col bg-no-repeat bg-cover gap-20 h-96 lg:h-[450px] justify-center items-center"
+      className="bg-center flex flex-col bg-no-repeat bg-cover gap-20 h-96 lg:h-[390px] xl:h-[450px] justify-center items-center"
     >
       <BreadCrumb
         pageName={title}

@@ -20,7 +20,7 @@ export default function AdminLogin() {
 
     useEffect(() => {
         if (isSuccess) {
-            setMessage({ type: 'success', message: data || 'login successfully' });
+            setMessage({ type: 'success', message: data?.message || 'login successfully' });
             router.push('/xyz/admin')
         }
         if (isError) {
@@ -32,7 +32,7 @@ export default function AdminLogin() {
     return (
         <div>
             <div className="bg-gray-200 h-screen flex flex-col items-center justify-center p-4 dark:bg-slate-800">
-                <Image src={'/nanco-logo-black.png'} alt="logo" height={400} width={500} className="w-32 h-auto mx-auto" />
+                <img src={'/nanco-logo-black.png'} alt="logo" height={400} width={500} className="w-32 h-auto mx-auto" />
                 <div className="bg-white p-6 shadow-lg rounded w-96 dark:bg-slate-100 mt-5">
 
                     <form onSubmit={loginAdmin}>

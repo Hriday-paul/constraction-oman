@@ -30,8 +30,8 @@ const DeleteClient = React.memo(({ id }) => {
         <div>
             <Spin spinning={isLoading} indicator={<PiSpinnerGapBold className="text-7xl animate-spin" />}>
                 <Popconfirm
-                    title="Delete this people"
-                    description="Are you sure want to delete this people"
+                    title="Delete client"
+                    description="Are you sure want to delete this client"
                     onConfirm={deleteFunc}
                     okText="Yes"
                     cancelText="No"

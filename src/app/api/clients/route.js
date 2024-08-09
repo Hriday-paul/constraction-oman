@@ -24,7 +24,6 @@ export const GET = async () => {
     }
 };
 
-
 const publicDir = join(process.cwd(), 'public', 'clients');
 const ensureDir = async (dirPath) => {
     try {

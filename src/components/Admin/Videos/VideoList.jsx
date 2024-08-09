@@ -1,0 +1,82 @@
+'use client'
+
+import AdminError from "@/components/Shared/Error/AdminError";
+import AdminGetLoading from "@/components/Shared/Loading/AdminGetLoading";
+import { useVideosQuery } from "@/Redux/Api/Api";
+import EditVideo from "./EditVideo";
+import DeleteVideo from "./DeleteVideo";
+
+const VideoList = () => {
+    const { isLoading, isError, isSuccess, data } = useVideosQuery();
+
+    return (
+        <div>
+            {
+                isLoading ? <AdminGetLoading /> : isError ? <AdminError /> : isSuccess && <div>
+                    <div className="rounded-sm border bg-white shadow-default my-8">
+                        <div className="border-b border-stroke py-4 px-6">
+                            <h3 className="font-medium text-black">
+                                Videos
+                            </h3>
+                        </div>
+
+                        <div className="max-w-full overflow-x-auto p-5">
+                            <table className="w-full table-auto">
+                                <thead>
+                                    <tr className="bg-gray-2 text-left dark:bg-meta-4 bg-slate-100">
+                                        <th className="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
+                                            Title
+                                        </th>
+                                        <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
+                                            Details
+                                        </th>
+                                        <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
+                                            Embeded url
+                                        </th>
+                                        <th className="py-4 px-4 font-medium text-black dark:text-white">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {data?.map((video, key) => (
+                                        <tr key={video?.id}>
+                                             <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                                                <p className="text-black dark:text-white">
+                                                    {video?.title}
+                                                </p>
+                                            </td>
+                                            <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                                                <p className="text-black dark:text-white">
+                                                    {video?.details}
+                                                </p>
+                                            </td>
+                                            <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                                                <p className="text-black dark:text-white">
+                                                    {video?.src}
+                                                </p>
+                                            </td>
+
+                                            <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                                                <div className="flex items-center space-x-3.5">
+
+                                                    <EditVideo video={video} />
+                                                    <DeleteVideo id={video?.id} />
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+        </div>
+    )
+}
+
+export default VideoList;

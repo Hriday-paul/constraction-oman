@@ -19,9 +19,9 @@ export default function SmallImage({ image, title, details, id, big }) {
           </p>
         </div>
       </div>
-      <Image
+      <img
         src={image}
-        alt=""
+        alt="nancco project image"
         width={500}
         height={500}
         className="group-hover:scale-110 duration-700 object-cover w-full h-full "

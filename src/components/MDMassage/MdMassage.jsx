@@ -18,7 +18,7 @@ export default function MdMassage({ isMd = false, image, who, quotes }) {
       >
         <div className="shade absolute border-[8px] border-l-secondary border-r-white border-b-white border-t-secondary w-[60%] h-[60%] rounded-md -z-10 top-5 left-8"></div>
         <div className="shade absolute border-[8px] border-l-white border-r-primary border-b-primary border-t-white w-[60%] h-[60%] rounded-md -z-10 bottom-5 right-8"></div>
-        <Image
+        <img
           src={image}
           alt={`${who} image`}
           className=" w-[70%] h-[80%]  object-cover rounded-md"

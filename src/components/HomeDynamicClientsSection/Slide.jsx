@@ -22,7 +22,7 @@ export default function Slide({ left, images }) {
 function SlideImage({ src }) {
   return (
     <div className="flex justify-center items-center">
-      <Image
+      <img
         height={500}
         width={500}
         alt="alt"

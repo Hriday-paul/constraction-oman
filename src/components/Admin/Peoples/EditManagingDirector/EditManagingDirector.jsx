@@ -134,7 +134,7 @@ export default function EditManagingDirector() {
                                             placeholder="photo"
                                             className={`w-full rounded border-[1.5px] bg-transparent py-3 px-5 text-black outline-none transition disabled:cursor-default disabled:bg-whiter focus:border-blue-500 active:border-blue-500 `}
                                         />
-                                        <Image src={file ? URL.createObjectURL(file) : data?.image} height={500} width={500} className="w-24 h-auto mx-auto mt-3" alt="profile pic"></Image>
+                                        <img src={file ? URL.createObjectURL(file) : data?.image} height={500} width={500} className="w-24 h-auto mx-auto mt-3" alt="profile pic"></Image>
                                     </div>
 
                                 </div>

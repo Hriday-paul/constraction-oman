@@ -45,7 +45,7 @@ export default function ClientList() {
                       <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                           <div className="rounded-md">
-                            <Image src={client?.image} height={500} width={500} className="h-16 w-auto" alt="director image" />
+                            <img src={client?.image} height={500} width={500} className="h-16 w-auto" alt="director image" />
                           </div>
                           <p className="text-sm text-black dark:text-white">
                             {client?.position}

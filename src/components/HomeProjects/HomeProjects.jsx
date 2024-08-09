@@ -9,11 +9,13 @@ export default function HomeProjects() {
   return (
     <div className=" w-full overflow-x-hidden">
       <div className="container overflow-x-hidden">
-        <Title>OUR BEST PROJECTS</Title>
 
-        <div className="text-sm lg:text-xl text-center pb-12 text-darkShade w-4/5 lg:w-3/5 mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-          tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+        <div className="mt-10 md:mt-16 lg:mt-24 gap-2 ">
+          <h1 className="uppercase text-center text-2xl md:text-3xl lg:text-4xl text-muted flex flex-col justify-center items-center font-semibold">
+            <span className="text-gray-900">OUR BEST PROJECTS</span>
+          </h1>
+          <p className="text-sm lg:text-base text-center pb-12 text-darkShade w-4/5 lg:w-3/5 mx-auto mt-3">Cras varius purus in tempus porttitor ut dapibus efficitur sagittis cras vitae lacus metus nunc vulputate facilisis nisi
+            eu lobortis erat consequat ut. Aliquam et justo ante. Nam a cursus velit</p>
         </div>
 
         <Suspense fallback={'loading....'}>

@@ -5,12 +5,10 @@ import { ImSpinner8 } from 'react-icons/im';
 
 const DraftImages = React.memo(({ images, setImages, prevLoadedImg, setPrevLoadedImg }) => {
     const [limit, setLimit] = useState(10);
-    const { isLoading: filesLoading, isError: filesErr, data: files, isSuccess } = useUploadedFilesQuery({ limit }, { refetchOnMountOrArgChange: true });
+    const { isLoading: filesLoading, isError: filesErr, data: files, isSuccess, error } = useUploadedFilesQuery({ limit }, { refetchOnMountOrArgChange: true });
 
     useEffect(() => {
         if (isSuccess) {
-
-
             setPrevLoadedImg(alreadyLoaded => [...alreadyLoaded, ...files])
         }
     }, [isSuccess])
@@ -18,8 +16,6 @@ const DraftImages = React.memo(({ images, setImages, prevLoadedImg, setPrevLoade
     const setStateImages = (url) => {
         setImages(prevImgs => [...prevImgs, url])
     }
-
-    // console.log(prevLoadedImg)
 
     return (
         <div>
@@ -35,8 +31,7 @@ const DraftImages = React.memo(({ images, setImages, prevLoadedImg, setPrevLoade
                             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5'>
                                 {
                                     prevLoadedImg && prevLoadedImg?.map((image, indx) => {
-                                        console.log(image)
-                                        return <Image onClick={() => setStateImages(image?.image)} key={indx + image?.id} src={image?.image} height={500} width={500} className="w-24 h-auto mx-auto mt-3" alt="project pic" />
+                                        return <img onClick={() => setStateImages(image?.image)} key={image?.id} src={image?.image} height={500} width={500} className="w-24 h-auto mx-auto mt-3" alt="project pic" />
                                     })
                                 }
                             </div>

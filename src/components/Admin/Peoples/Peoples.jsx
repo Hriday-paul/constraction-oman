@@ -65,7 +65,7 @@ export default function Peoples() {
                                                 <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                                                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                                                         <div className="h-20 w-20 rounded-md">
-                                                            <Image src={director?.image} height={500} width={500} className="h-20 w-auto" alt="director image" />
+                                                            <img src={director?.image} height={500} width={500} className="h-20 w-auto" alt="director image" />
                                                         </div>
                                                         <p className="text-sm text-black dark:text-white">
                                                             {director?.position}
@@ -163,7 +163,7 @@ export default function Peoples() {
                                                 <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                                                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                                                         <div className="h-20 w-20 rounded-md">
-                                                            <Image src={people?.image} height={500} width={500} className="h-20 w-auto" alt="director image" />
+                                                            <img src={people?.image} height={500} width={500} className="h-20 w-auto" alt="director image" />
                                                         </div>
                                                     </div>
                                                 </td>

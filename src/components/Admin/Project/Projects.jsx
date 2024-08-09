@@ -83,7 +83,7 @@ export default function Projects() {
                           <div >
                             <div className="h-20 w-20 rounded-md bg-slate-100 flex justify-center items-center">
                               <p className="text-sm">View all</p>
-                              {/* <Image src={sector?.icon} height={500} width={500} className="h-20 w-auto" alt="director image" /> */}
+                              {/* <img src={sector?.icon} height={500} width={500} className="h-20 w-auto" alt="director image" /> */}
                             </div>
                           </div>
                         </td>

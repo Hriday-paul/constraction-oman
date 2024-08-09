@@ -6,8 +6,8 @@ import StoreProvider from "@/Redux/StoreProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "NANCO OMAN",
-  description: "NANCO OMAN",
+  title: "NANCCO",
+  description: "NANCCO",
 };
 
 export default function RootLayout({ children }) {

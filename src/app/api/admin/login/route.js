@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt'
 import db from '@/DB/database'
 import { CreatJwtToken } from '@/B_middleware/JwtToken';
+import { NextResponse } from 'next/server';
 
 export const POST = async (request) => {
     try {
@@ -35,9 +36,25 @@ export const POST = async (request) => {
             return Response.json({ error: 'Invalid credential' }, { status: 401 });
         }
 
-        await CreatJwtToken({ user_name: body.user_name });
+        const token = await CreatJwtToken({ user_name: body.user_name }); 
 
-        return Response.json('Login successfully', { status: 200 })
+        const response = NextResponse.json({message : 'Login successfully'});
+
+        const expiresIn = 7 * 24 * 60 * 60;
+        const cookieOptions = {
+            httpOnly: true,
+            maxAge: expiresIn,
+            path: '/',
+            sameSite: 'strict',
+            secure: process.env.NODE_ENV === 'production',
+        };
+
+        response.cookies.set('token', token, cookieOptions)
+
+        
+        // cookies().set('token', token, cookieOptions)
+
+        return response;
 
     } catch (err) {
         console.log(err)

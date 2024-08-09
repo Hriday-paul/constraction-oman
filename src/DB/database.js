@@ -1,4 +1,4 @@
-import "colors";
+
 import mysql from "mysql"
 import util from "util";
 
@@ -28,7 +28,7 @@ import util from "util";
 
 // Create a connection pool
 const pool = mysql.createPool({
-  connectionLimit: 10, // Adjust based on your needs
+  connectionLimit: 15000, // Adjust based on your needs
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,

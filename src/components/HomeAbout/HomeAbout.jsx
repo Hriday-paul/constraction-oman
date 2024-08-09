@@ -5,12 +5,12 @@ import { TbToolsKitchen2 } from "react-icons/tb";
 
 export default function HomeAbout() {
   return (
-    <div className="bg-slate-50 py-20">
+    <div className="bg-slate-50 py-10 md:py-16 lg:py-20">
       <div className="container">
         <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 w-full h-full gap-6 justify-between">
           <div className="imgBox w-full h-full relative overflow-hidden group min-h-72 lg:min-h-0 md:min-h-0">
             <div className="shade z-20 -rotate-45 absolute transition-all duration-1000 group-hover:translate-x-[50rem] group-hover:-translate-y-80 w-[30%] h-[200%] opacity-30 backdrop-blur-md shadow-lg shadow-white bg-white top-0 left-0 -translate-x-96"></div>
-            <Image
+            <img
               height={700}
               width={700}
               src='/about/truck.jpg'

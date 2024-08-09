@@ -42,7 +42,7 @@ function ClientLogoImage({ src, webUrl }) {
                 <div className="relative cursor-pointer group overflow-hidden  h-ful w-full ">
                     <div className="relative w-full h-full duration-300 group-hover:-translate-y-[100%] flex justify-center item ">
                         <Link href={webUrl || '#'} className="w-full h-full justify-center items-center flex">
-                            <Image
+                            <img
                                 src={src}
                                 height={500}
                                 width={500}
@@ -51,7 +51,7 @@ function ClientLogoImage({ src, webUrl }) {
                             />
                         </Link>
                         <Link href={webUrl || '#'}  className="absolute flex justify-center items-center w-full h-[100%]  top-[100%] left-0">
-                            <Image
+                            <img
                                 src={src}
                                 height={500}
                                 width={500}

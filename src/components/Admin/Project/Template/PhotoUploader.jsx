@@ -46,8 +46,7 @@ const PhotoUploader = React.memo(({ images, setImages }) => {
     useEffect(() => {
         if (isSuccess) {
             setImages((prevImgs) => [...prevImgs, data?.url])
-            setPrevLoadedImg(alreadyLoaded => {
-                
+            setPrevLoadedImg((alreadyLoaded) => {
                 return [{ id: crypto.randomUUID(), image: data?.url }, ...alreadyLoaded]
             })
             setParcent(100)
@@ -59,7 +58,7 @@ const PhotoUploader = React.memo(({ images, setImages }) => {
                 router.push('/xyz/admin/login')
             }
         }
-    }, [isSuccess, isError, data, error, router, setImages, setPrevLoadedImg])
+    }, [isSuccess, isError, data, error, router])
 
     return (
         <div >
@@ -67,7 +66,7 @@ const PhotoUploader = React.memo(({ images, setImages }) => {
                 <div className='flex flex-row items-center gap-x-5'>
                     {
                         images && images?.map((image, indx) => {
-                            return <Image key={indx + image} src={image} height={500} width={500} className="w-24 h-auto mx-auto mt-3" alt="project pic"></Image>
+                            return <img key={indx + image} src={image} height={500} width={500} className="w-24 h-auto mx-auto mt-3" alt="project pic" />
                         })
                     }
                 </div>
@@ -79,7 +78,7 @@ const PhotoUploader = React.memo(({ images, setImages }) => {
                     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5'>
                         {
                             images && images?.map((image, indx) => {
-                                return <Image key={indx + image} src={image} height={500} width={500} className="w-24 h-auto mx-auto mt-3" alt="project pic"></Image>
+                                return <img key={indx + image} src={image} height={500} width={500} className="w-24 h-auto mx-auto mt-3" alt="project pic" />
                             })
                         }
                         <label className='border-2 border-dashed h-auto min-h-40 w-full bg-slate-50 border-gray-300 flex justify-center items-center relative'>
@@ -92,9 +91,9 @@ const PhotoUploader = React.memo(({ images, setImages }) => {
                             }
                         </label>
                     </div>
-                    <h2 className='text-lg text-black mt-16 mb-5'>Recenet uploaded images</h2>
+                    {/* <h2 className='text-lg text-black mt-16 mb-5'>Recenet uploaded images</h2>
 
-                    <DraftImages images={images} setImages={setImages} prevLoadedImg={prevLoadedImg} setPrevLoadedImg={setPrevLoadedImg} />
+                    <DraftImages images={images} setImages={setImages} prevLoadedImg={prevLoadedImg} setPrevLoadedImg={setPrevLoadedImg} /> */}
 
                 </div>
 

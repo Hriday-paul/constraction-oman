@@ -63,7 +63,7 @@ function TimeLineProject({ heading, description, img, years, id, indx }) {
                 <div className="flex flex-col md:group-odd:items-end md:group-even:items-start w-fit md:mx-auto lg:group-odd:-translate-x-1/2 lg:group-even:translate-x-1/2 lg:relative lg:group-even:left-11 lg:group-odd:right-11" >
                     {/** image */}
                     <Link href={`/projects/details/${id}`} className="min-w-52 aspect-[301/201]  w-7/12 md:w-64 lg:w-80 mb-7 relative overflow-hidden">
-                        <Image
+                        <img
                             src={img}
                             alt={heading}
                             width={1000}

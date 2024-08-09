@@ -4,7 +4,7 @@ export default async function ImageContainer({ bestProjects: projectsPromise }) 
   const bestProjects = await projectsPromise;
 
   return (
-    <div className=" lg:py-20 md:py-12 gap-3 grid grid-flow-dense lg:grid-cols-3 grid-cols-2 justify-center place-items-center ">
+    <div className=" lg:py-12 md:py-9 gap-3 grid grid-flow-dense lg:grid-cols-3 grid-cols-2 justify-center place-items-center ">
       <div className=" flex flex-col justify-center place-items-center h-full gap-3 w-full">
         {
           bestProjects?.map((project, indx) => {

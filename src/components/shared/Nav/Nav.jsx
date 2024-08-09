@@ -14,6 +14,7 @@ const menu = [
       "OUR JOURNEY": "/about/our-journey",
       "CHAIRMAN'S MESSAGE": "/about/chairmen-msg",
       "MD'S MESSAGE": "/about/md-msg",
+      "Videos": "/about/videos",
     },
   },
   {
@@ -27,9 +28,9 @@ const menu = [
   {
     item: "PROJECTS",
     subItem: {
-      "ENGINEERING & CONSTRUCITON": "/projects/engineering-constraction",
-      "Water proof & Flooring facilities": "/projects/water-proof-flooring-facilities",
-      MEPI: "/projects/mepi",
+      "ENGINEERING & CONSTRUCITON": "/projects?category=engineering-constraction",
+      "Water proof & Flooring facilities": "/projects?category=water-proof-flooring-facilities",
+      MEPI: "/projects?category=mepi",
     },
   },
   {
@@ -90,7 +91,7 @@ const Nav = () => {
 
           <div className="flex flex-row justify-between items-center p-3 relative">
             <Link href='/' className="w-24">
-              <Image
+              <img
                 height={500}
                 width={500}
                 src={logo ===

@@ -31,7 +31,7 @@ export default function ProjectCarousel({images}) {
               }}
               key={index+imageSrc}
             >
-              <Image
+              <img
                 width={30000}
                 height={30000}
                 src={imageSrc}

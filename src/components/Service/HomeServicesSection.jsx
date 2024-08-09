@@ -7,13 +7,19 @@ import { RiGovernmentLine } from "react-icons/ri";
 export default function HomeServicesSection() {
   return (
     <>
-      <div className=" pb-16">
+      <div className="pb-8 md:pb-14 lg:pb-20">
         <div className="max-w-7xl mx-auto px-4">
-          <Title>What we build</Title>
+          {/* <Title>What we build</Title> */}
+          <div className="mt-16 gap-2 mb-8 lg:mb-12">
+          <h1 className="uppercase text-left text-2xl md:text-3xl lg:text-4xl text-muted flex flex-col items-center font-semibold">
+            <span className="text-gray-900">What we build</span>
+          </h1>
+        </div>
+
           <div className="my-5 w-fit mx-auto md:grid md:grid-cols-2 md:my-0 md:gap-9 lg:flex">
-            <Card link='/projects/engineering-constraction'>Construction and Engineering</Card>
-            <Card link='/projects/integrated-facilities-management-oman' Icon={<GiWaterfall />}>Water proof & Flooring facilities</Card>
-            <Card link='/projects/mepi' Icon={<RiGovernmentLine />}>MEPI</Card>
+            <Card link='/projects?category=engineering-constraction'>Construction and Engineering</Card>
+            <Card link='/projects?category=water-proof-flooring-facilities' Icon={<GiWaterfall />}>Water proof & Flooring facilities</Card>
+            <Card link='/projects?category=mepi' Icon={<RiGovernmentLine />}>MEPI</Card>
           </div>
         </div>
       </div>

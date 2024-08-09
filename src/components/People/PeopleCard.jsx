@@ -15,7 +15,7 @@ export default function PeopleCard({ image, name, title, links, email, phone, is
                         }
                     </div>
                 </div>
-                <Image height={500} width={500} src={image} alt="People image" className='w-full h-auto absolute group-hover:scale-110 transition-all duration-500 object-cover' />
+                <img height={500} width={500} src={image} alt="People image" className='w-full h-auto absolute group-hover:scale-110 transition-all duration-500 object-cover' />
             </div>
             <div className="textBox px-5 py-4">
                 <h3 className="name text-xl pb-1 font-medium">{name}</h3>

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // Define a service using a base URL and expected endpoints
 export const Api = createApi({
     reducerPath: 'api',
-    tagTypes: ['chairman', 'managingDirector', 'projectManager', 'peoples', 'clients', 'sectors', 'projects', 'contact', 'message'],
+    tagTypes: ['chairman', 'managingDirector', 'projectManager', 'peoples', 'clients', 'sectors', 'projects', 'contact', 'message', 'videos'],
     baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_SERVER_URL }),
     endpoints: (builder) => ({
 
@@ -132,7 +132,7 @@ export const Api = createApi({
             })
         }),
         uploadedFiles: builder.query({
-            query: ({limit}) => `/upload?limit=${limit}`,
+            query: ({ limit }) => `/upload?limit=${limit}`,
         }),
         addProject: builder.mutation({
             query: (data) => ({
@@ -200,9 +200,44 @@ export const Api = createApi({
             }),
             invalidatesTags: ['message']
         }),
+        videos: builder.query({
+            query: () => `/videos`,
+            providesTags: ['videos']
+        }),
+        addVideo: builder.mutation({
+            query: (data) => ({
+                url: `/videos`,
+                method: 'POST',
+                body: data
+            }),
+            invalidatesTags: ['videos']
+        }),
+        updateVideo: builder.mutation({
+            query: (data) => ({
+                url: `/videos`,
+                method: 'PUT',
+                body: data
+            }),
+            invalidatesTags: ['videos']
+        }),
+        deleteVideo: builder.mutation({
+            query: ({ id }) => ({
+                url: `/videos?id=${id}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ['videos']
+        }),
+        updatePassword : builder.mutation({
+            query: (data) => ({
+                url: `/admin/updatePassword`,
+                method: 'PUT',
+                body: data
+            }),
+          
+        }),
     })
 });
 
-export const { useLoginAdminMutation, useChairmenInfoQuery, useUpdateChairmanMutation, useManagingDirectorInfoQuery, useUpdateManagingDirectorMutation, useAddProjectManagerMutation, usePeoplesQuery, useUpdateProjectManagerMutation, useDeleteProjectManagerMutation, useAddNewClientMutation, useAllClientsQuery, useUpdateClientMutation, useDeleteClientMutation, useAddSectorMutation, useAllSectorsQuery, useEditSectorMutation, useDeleteSectorMutation, useFileUploadMutation, useUploadedFilesQuery, useAddProjectMutation, useAllProjectsQuery, useEditProjectMutation, useDeleteProjectMutation, useContactQuery, useUpdateContactMutation, usePostMessageMutation, useMessagesQuery, useSingleMessageQuery, useSendReplyMessageMutation, useUpdateNewMessageMutation } = Api;
+export const { useLoginAdminMutation, useChairmenInfoQuery, useUpdateChairmanMutation, useManagingDirectorInfoQuery, useUpdateManagingDirectorMutation, useAddProjectManagerMutation, usePeoplesQuery, useUpdateProjectManagerMutation, useDeleteProjectManagerMutation, useAddNewClientMutation, useAllClientsQuery, useUpdateClientMutation, useDeleteClientMutation, useAddSectorMutation, useAllSectorsQuery, useEditSectorMutation, useDeleteSectorMutation, useFileUploadMutation, useUploadedFilesQuery, useAddProjectMutation, useAllProjectsQuery, useEditProjectMutation, useDeleteProjectMutation, useContactQuery, useUpdateContactMutation, usePostMessageMutation, useMessagesQuery, useSingleMessageQuery, useSendReplyMessageMutation, useUpdateNewMessageMutation, useVideosQuery, useUpdateVideoMutation, useDeleteVideoMutation, useAddVideoMutation, useUpdatePasswordMutation } = Api;
 
 export const { useGetPokemonByNameQuery } = Api;

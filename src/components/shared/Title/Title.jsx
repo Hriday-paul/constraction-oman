@@ -10,7 +10,7 @@ export default function Title({ children }) {
       <h1 className="uppercase">
         {wordOne} <span className="text-primary">{wordTwo}</span>
       </h1>
-      <Image src={LineImage} height={10} width={100} alt="line" className="w-60 h-auto" />
+      <img src={LineImage} height={10} width={100} alt="line" className="w-60 h-auto" />
     </div>
   );
 }

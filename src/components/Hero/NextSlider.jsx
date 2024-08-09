@@ -15,20 +15,20 @@ export default function NextSlider({ images }) {
       modules={[Autoplay, Navigation]}
       className="h-full w-full"
     >
-      {images.map((imageSrc, index) => {
+      {images.map((image) => {
         return (
           <SwiperSlide
             onClick={() => {
               console.log("clicked");
             }}
-            key={index}
+            key={image?.id}
           >
-            <Image
+            <img
               height={3000}
               width={3000}
               alt="nanco slider image"
-              src={imageSrc}
-              className="brightness-50 h-full w-full min-h-[600px] object-cover select-none"
+              src={image?.src}
+              className="brightness-50 h-full w-full min-h-[400px] object-cover select-none"
             />
           </SwiperSlide>
         );

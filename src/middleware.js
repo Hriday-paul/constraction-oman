@@ -1,10 +1,10 @@
+
 import { NextResponse } from 'next/server'
 
-export function middleware(request) {
+
+export async function middleware(request) {
   const { nextUrl } = request;
   const goingRout = nextUrl.pathname;
-
-  console.log(goingRout)
 
   if (goingRout === '/buisiness-lines' || goingRout === '/buisiness-lines/engineering-constraction') {
     return NextResponse.redirect(new URL('/buisiness-lines/engineering-constraction/prestigius-projects', request.url))
@@ -16,15 +16,30 @@ export function middleware(request) {
     return NextResponse.redirect(new URL('/buisiness-lines/mepi/prestigius-projects', request.url))
   }
 
-
   if (goingRout === '/about') {
     return NextResponse.redirect(new URL('/about/our-journey', request.url))
   }
 
+  if (goingRout === '/xyz/admin/login') {
+    return NextResponse.next();
+  }
 
-  //return NextResponse.redirect(new URL('/', request.url))
+  if (goingRout.startsWith('/xyz/admin')) {
+    const token = request.cookies.get('token')?.value;
+    const response = await fetch(process.env.SERVER_URL + `/admin/checkAdmin?token=${token}`, { cache: 'no-store' });
+    
+    if (!response.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      return NextResponse.redirect(new URL('/xyz/admin/login', request.url))
+    }
+
+    return NextResponse.next();
+  }
+
+  return NextResponse.next();
+
 }
 
 export const config = {
-  matcher: ['/buisiness-lines', '/buisiness-lines/engineering-constraction', '/buisiness-lines/water-proof-flooring-facilities', '/buisiness-lines/mepi', '/about'],
+  matcher: ['/buisiness-lines', '/buisiness-lines/engineering-constraction', '/buisiness-lines/water-proof-flooring-facilities', '/buisiness-lines/mepi', '/about', '/xyz/:path*'],
 }

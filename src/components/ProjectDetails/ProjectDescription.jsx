@@ -11,7 +11,7 @@ export default function ProjectDescription({ data }) {
         <p className="text-gray text-lg leading-7 my-10">{data?.details}</p>
 
         <div>
-          <Image
+          <img
             src={data?.images?.split(',')[0]}
             width={3000}
             height={3000}

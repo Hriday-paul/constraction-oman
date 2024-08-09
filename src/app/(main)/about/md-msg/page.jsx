@@ -57,7 +57,7 @@ const MessageContainer = ({ isMd = false, photo, who, quotes, email }) => {
             >
                 <div className="shade absolute border-[8px] border-l-secondary border-r-white border-b-white border-t-secondary w-[60%] h-[60%] rounded-md -z-10 top-5 left-8"></div>
                 <div className="shade absolute border-[8px] border-l-white border-r-primary border-b-primary border-t-white w-[60%] h-[60%] rounded-md -z-10 bottom-5 right-8"></div>
-                <Image
+                <img
                     src={photo}
                     height={500}
                     width={500}

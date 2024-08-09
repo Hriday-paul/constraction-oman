@@ -4,18 +4,20 @@ export const GET = async () => {
 
     try {
 
-        // get chairmens photo
-        const getchirmenPhotoCommand = 'select image from directors where position = "Chairman"'
-        const chairmensPhotoPromise = await new Promise((resolve, reject) => {
-            db.query(getchirmenPhotoCommand, (err, result) => {
+        let sliderSql = `SELECT * from home_sliders`
+
+        // get projects
+        const sliderPromise = await new Promise((resolve, reject) => {
+            db.query(sliderSql, (err, result) => {
                 if (err) {
                     console.log(err);
-                    reject({ error: 'Internal Server Error'});
+                    reject({ error: 'Internal Server Error' })
                 }
                 resolve({ result })
             })
         });
-        const chairmanPhoto = chairmensPhotoPromise.result[0].image;
+
+        const sliderImgs = sliderPromise.result;
 
 
         //get clients length        
@@ -24,7 +26,7 @@ export const GET = async () => {
             db.query(clientLengthCommand, (err, result) => {
                 if (err) {
                     console.log(err);
-                    reject({ error: 'Internal Server Error'});
+                    reject({ error: 'Internal Server Error' });
                 }
                 resolve({ result })
             })
@@ -38,7 +40,7 @@ export const GET = async () => {
             db.query(projectLengthCommand, (err, result) => {
                 if (err) {
                     console.log(err);
-                    reject({ error: 'Internal Server Error'});
+                    reject({ error: 'Internal Server Error' });
                 }
                 resolve({ result })
             })
@@ -52,7 +54,7 @@ export const GET = async () => {
             db.query(membersLengthCommand, (err, result) => {
                 if (err) {
                     console.log(err);
-                    reject({ error: 'Internal Server Error'});
+                    reject({ error: 'Internal Server Error' });
                 }
                 resolve({ result })
             })
@@ -60,10 +62,10 @@ export const GET = async () => {
         const membersLength = menbersLengthPromise.result[0].clientLength;
 
         const response = {
-            chairmanPhoto ,
-            totalClients : clientLength, 
-            totalProjects : projectLength,
-            totalMembars : membersLength
+            sliderImgs,
+            totalClients: clientLength,
+            totalProjects: projectLength,
+            totalMembars: membersLength
         }
 
         return Response.json(response, { status: 200 })

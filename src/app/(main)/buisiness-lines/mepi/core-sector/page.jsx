@@ -22,7 +22,7 @@ export default async function page() {
                         return <div key={sector?.id} className='w-full cursor-pointer relative transition-all duration-500 py-6 flex gap-4 flex-col group overflow-hidden rounded-md justify-center place-items-center bg-white border'>
                             {/* <div className="shade absolute w-[2%]  rotate-12 h-[200%] -translate-x-6 blur-sm group-hover:translate-x-[500px] transition-all duration-500  shadow shadow-white bg-white -top-10 left-0"></div> */}
                             <div className="text-4xl flex justify-center p-2 rounded-md ">
-                                <Image src={sector?.icon} height={500} width={500} alt="core sector icon" className='w-10 h-auto group-hover:scale-110 transition-all duration-500 group-hover:drop-shadow-lg' />
+                                <img src={sector?.icon} height={500} width={500} alt="core sector icon" className='w-10 h-auto group-hover:scale-110 transition-all duration-500 group-hover:drop-shadow-lg' />
                             </div>
                             <div className="title uppercase font-bold text-primary">
                                 {sector?.service_name}

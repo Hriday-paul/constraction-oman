@@ -7,19 +7,21 @@ import { RiSmartphoneLine } from "react-icons/ri";
 import Details from "./Details";
 import Link from "next/link";
 
-export default function DetailsBox() {
+export default async function DetailsBox({contactInfo}) {
+  const contactData = await contactInfo;
+  
   return (
-    <div className="bg-primary py-4 lg:py-0 w-full h-full flex flex-col justify-center place-items-center rounded-md">
+    <div className="bg-gray-900 border py-12 lg:py-0 w-full h-full flex flex-col justify-center place-items-center rounded-md">
       <div className="div flex flex-col gap-3">
         <Details
           icon={<RiSmartphoneLine />}
           title={"Troll Free Number"}
-          info={"+1 001-765-4321"}
+          info={contactData?.toll_free}
         />
         <Details
           icon={<MdOutlineMail />}
           title={"Send us an e-mail."}
-          info={"office@example.com"}
+          info={contactData?.email}
         />
         <Details
           icon={<LuClock3 />}
